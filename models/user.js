@@ -1,5 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-  var User = sequelize.define("Users", {
+  var User = sequelize.define("User", {
+    // Giving the User model a firstName of type STRING
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 320]
+        len: [6, 320]
       }
     },
     password: {
@@ -28,11 +29,12 @@ module.exports = function (sequelize, DataTypes) {
         len: [8, 20]
       }
     }
-  }, {
-    freezeTableName: true
   });
+
   User.associate = function (models) {
-    User.hasMany(models.Workouts, {
+    // Associating User with Workouts
+    // When an User is deleted, also delete any associated Workouts
+    User.hasMany(models.Workout, {
       onDelete: "cascade"
     });
   };
