@@ -20,3 +20,15 @@ body {
   position: absolute;
   background: linear-gradient(to bottom, #6e529d 0%, #d97b93 100%);
 }
+
+h1 {
+  font-family: "ZCOOL KuaiLe", cursive;
+  font-size: 72px;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fit {
+  font-family: "Raleway", sans-serif;
+}
