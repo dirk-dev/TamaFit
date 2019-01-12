@@ -21,14 +21,30 @@ body {
   background: linear-gradient(to bottom, #6e529d 0%, #d97b93 100%);
 }
 
-h1 {
-  font-family: "ZCOOL KuaiLe", cursive;
+.fit {
+  font-weight: bold;
+  font-family: "Raleway", sans-serif;
   font-size: 72px;
-  background: -webkit-linear-gradient(#eee, #333);
+  background: linear-gradient(to right, #4674dd 0%, #13a306 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.fit {
-  font-family: "Raleway", sans-serif;
+.tama {
+  font-family: "ZCOOL KuaiLe", cursive;
+  font-size: 72px;
+  background: linear-gradient(to right, red 0%, yellow 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px 6px #060A0D)
+}
+
+label {
+  font-family: "ubuntu", sans-serif;
+}
+
+#submit {
+  background-color: red;
+  color: yellow;
+  border-color: white
 }
