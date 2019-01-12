@@ -11,8 +11,8 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/login", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+  app.get("/login", function (req, res) {
+    db.Example.findAll({}).then(function (dbExamples) {
       res.render("login_page", {
         msg: "Welcome!",
         examples: dbExamples
