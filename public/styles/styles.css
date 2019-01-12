@@ -21,6 +21,12 @@ body {
   background: linear-gradient(to bottom, #6e529d 0%, #d97b93 100%);
 }
 
+h1 {
+  text-align: center;
+  font-family: "ZCOOL KuaiLe", cursive;
+  font-size: 55px;
+}
+
 .fit {
   font-weight: bold;
   font-family: "Raleway", sans-serif;
@@ -28,6 +34,7 @@ body {
   background: linear-gradient(to right, #4674dd 0%, #13a306 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(3px 3px 6px #060a0d);
 }
 
 .tama {
@@ -36,11 +43,15 @@ body {
   background: linear-gradient(to right, red 0%, yellow 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(2px 2px 6px #060a0d);
+  filter: drop-shadow(3px 3px 6px #060a0d);
 }
 
 label {
   font-family: "ubuntu", sans-serif;
+}
+
+#avatar_container {
+  text-align: center;
 }
 
 #submit {
