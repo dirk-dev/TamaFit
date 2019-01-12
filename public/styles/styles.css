@@ -22,10 +22,13 @@ body {
 }
 
 h1 {
-  font-family: 'ZCOOL KuaiLe', cursive;
+  font-family: "ZCOOL KuaiLe", cursive;
+  font-size: 72px;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.dope {
-  font-family: 'Raleway', sans-serif;
-  
+.fit {
+  font-family: "Raleway", sans-serif;
 }
