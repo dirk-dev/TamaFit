@@ -1,9 +1,18 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+  </div>
+</nav>
+
 <div id="home">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
         <br>
-        <a href="/"><h1 class="tama">Tama<span class="fit">Fit</span></h1></a>
+        <a href="/">
+          <h1 class="tama">Tama<span class="fit">Fit</span></h1>
+        </a>
         <hr>
 
         <h2>Sign Up Form</h2>
@@ -24,7 +33,7 @@
         </form>
         <br />
         <p>Or log in <a href="/login">here</a></p>
-        
+
         <ul id="example-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
@@ -40,5 +49,6 @@
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-{{!-- <script src="/js/index.js"></script> --}}
+{{!--
+<script type="text/javascript" src="../public/js/index.js"></script> --}}
 <script type="text/javascript" src="../public/js/signup.js"></script>
