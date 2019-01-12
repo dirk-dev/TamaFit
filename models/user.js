@@ -31,13 +31,5 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  User.associate = function (models) {
-    // Associating User with Workouts
-    // When an User is deleted, also delete any associated Workouts
-    User.hasMany(models.Workout, {
-      onDelete: "cascade"
-    });
-  };
-
   return User;
 };
