@@ -1,5 +1,8 @@
 var db = require("../models");
 
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
@@ -12,9 +15,37 @@ module.exports = function(app) {
   });
 
   app.get("/login", function (req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/members");
+    }
     db.Example.findAll({}).then(function (dbExamples) {
       res.render("login_page", {
-        msg: "Welcome!",
+        msg: "Login!",
+        examples: dbExamples
+      });
+    });
+  });
+
+  app.get("/signup", function (req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/members");
+    }
+    db.Example.findAll({}).then(function (dbExamples) {
+      res.render("signup_page", {
+        msg: "Sign up!",
+        examples: dbExamples
+      });
+    });
+  });
+
+  // Here we've add our isAuthenticated middleware to this route.
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  app.get("/members", isAuthenticated, function(req, res) {
+    db.Example.findAll({}).then(function (dbExamples) {
+      res.render("members", {
+        msg: "Welcome Member!",
         examples: dbExamples
       });
     });
@@ -28,7 +59,7 @@ module.exports = function(app) {
       });
     });
   });
-
+  
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
