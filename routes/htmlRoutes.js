@@ -11,9 +11,9 @@ module.exports = function (app) {
   });
 
 
-  app.get('/account', function(req, res) {
-    if (req.user) {res.render('example', {email:req.user.email, id:req.user.id})}
-    else if (!req.user) {res.render('index')};
+  app.get("/account", function(req, res) {
+    if (req.user) {res.render("account", {email:req.user.email, id:req.user.id})}
+    else if (!req.user) {res.render("index")};
   });
 
   app.get("/login", function (req, res) {
