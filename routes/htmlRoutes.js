@@ -4,57 +4,33 @@ var db = require("../models");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
-  // Load index page
-  app.get("/", function (req, res) {
-    db.Example.findAll({}).then(function (dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+   // Load index page
+   app.get("/", function (req, res) {
+    if (req.user) {res.redirect("/members");}
+    else {res.render("index")};
+  });
+
+
+  app.get('/account', function(req, res) {
+    if (req.user) {res.render('example', {email:req.user.email, id:req.user.id})}
+    else if (!req.user) {res.render('index')};
   });
 
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.render("login_page", {
-      msg: "Login!"
-    });
-    // db.User.findAll({}).then(function (dbUsers) {
-    //   res.render("login_page", {
-    //     msg: "Login!",
-    //     users: dbUsers
-    //   });
-    // });
+    if (req.user) {res.redirect("/members");}
+    else {res.render("login_page")};
   });
 
   app.get("/signup", function (req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.render("signup_page", {
-      msg: "Sign up!"
-    });
-    // db.User.findAll({}).then(function (dbUsers) {
-    //   res.render("signup_page", {
-    //     msg: "Sign up!",
-    //     users: dbUsers
-    //   });
-    // });
+    if (req.user) {res.redirect("/members");}
+    else {res.render("signup")};
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  // if user is logged in, allow access to members page
   app.get("/members", isAuthenticated, function (req, res) {
-    db.User.findAll({}).then(function (dbUsers) {
-      res.render("members", {
-        msg: "Welcome Member!",
-        users: dbUsers
-      });
-    });
+    res.render("members");
   });
 
   // Load example page and pass in an example by id
@@ -71,7 +47,7 @@ module.exports = function (app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function (req, res) {
-    res.render("404");
-  });
+  // app.get("*", function (req, res) {
+  //   res.render("404");
+  // });
 };
