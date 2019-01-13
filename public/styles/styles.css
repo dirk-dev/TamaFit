@@ -61,5 +61,15 @@ label {
 }
 
 .form-group {
-  border-color: white
+  border-color: white;
+}
+
+.dropdown-toggle {
+  background-color: rgb(9, 9, 160);
+  border-color: white;
+}
+
+.dropdown-toggle:hover {
+  background-color: rgb(170, 16, 62);
+  border-color: white;
 }
