@@ -21,6 +21,13 @@ body {
   background: linear-gradient(to bottom, #6e529d 0%, #d97b93 100%);
 }
 
+.type_6 {
+  border: 0;
+  height: 55px;
+  background-image: url(../images/type_6.png);
+  background-repeat: no-repeat;
+}
+
 h1 {
   text-align: center;
   font-family: "ZCOOL KuaiLe", cursive;
