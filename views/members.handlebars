@@ -1,0 +1,67 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/logout">
+        Logout
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+        <br>
+        <a href="/">
+          <h1 class="tama">Tama<span class="fit">Fit</span></h1>
+        </a>
+        <br>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <h1>Welcome <span class="member-name"></span></h1>
+  <br>
+  <a href="/account">View Account Info</a>
+</div>
+
+{{!-- container for dropdowns --}}
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+
+      {{!-- exercise selection dropdown --}}
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="ExerciseSelectDropdown"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Exercise Selection
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+    </div>
+
+    {{!-- exercise history dropdown --}}
+    <div class="col text-center">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="ExerciseHistoryDropdown"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Exercise History
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/members.js"></script>

@@ -1,3 +1,5 @@
+// models folder
+
 module.exports = function(sequelize, DataTypes) {
   var Log = sequelize.define("Log", {
     // title: {

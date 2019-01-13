@@ -1,3 +1,5 @@
+// models folder
+
 module.exports = function (sequelize, DataTypes) {
   var Workout = sequelize.define("Workout", {
     // Giving the Workout model a name of type STRING
