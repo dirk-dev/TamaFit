@@ -14,8 +14,9 @@
           <h1 class="tama">Tama<span class="fit">Fit</span></h1>
         </a>
         <hr>
-        <h2>Login Form</h2>
-        <form class="login">
+
+        <h2>Sign Up Form</h2>
+        <form class="signup">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
@@ -24,25 +25,15 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-default">Login</button>
+          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span> <span class="msg"></span>
+          </div>
+          <button type="submit" class="btn btn-default">Sign Up</button>
         </form>
         <br />
-        <p>Or sign up <a href="/signup">here</a></p>
-        {{!-- <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Username</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="username">
-          </div>
-          <div class="form-group">
-            <label for="example-text">Password</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="password">
-          </div> --}}
-          {{!-- <div class="form-group">
-            <label for="example-text">Password</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-text" placeholder="muffins"></textarea>
-          </div> --}}
-          {{!-- <button id="submit" class="btn btn-primary float-right">Login</button>
-        </form> --}}
+        <p>Or log in <a href="/login">here</a></p>
+
         <ul id="example-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
@@ -58,4 +49,4 @@
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="/js/login.js"></script>
+<script type="text/javascript" src="/js/signup.js"></script>
