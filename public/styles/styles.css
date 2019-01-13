@@ -44,7 +44,8 @@ h1 {
   filter: drop-shadow(3px 3px 6px #060a0d);
 }
 
-.tama {
+.tama,
+.tama-fix {
   font-family: "ZCOOL KuaiLe", cursive;
   font-size: 72px;
   background: linear-gradient(to right, red 0%, yellow 100%);
@@ -55,6 +56,10 @@ h1 {
 
 label {
   font-family: "ubuntu", sans-serif;
+}
+
+.login_btn {
+  padding: 0 5px;
 }
 
 #avatar_container {
