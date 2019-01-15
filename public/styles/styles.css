@@ -2,13 +2,6 @@
   line-height: 2.5;
 }
 
-hr {
-  height: 6px;
-  background: url(http://ibrahimjabbari.com/english/images/hr-12.png) repeat-x 0
-    0;
-  border: 0;
-}
-
 body,
 html {
   height: 100%;
@@ -23,6 +16,7 @@ body {
 
 .type_6 {
   border: 0;
+  width: 90%;
   height: 55px;
   background-image: url(../images/type_6.png);
   background-repeat: no-repeat;
@@ -58,8 +52,9 @@ label {
   font-family: "ubuntu", sans-serif;
 }
 
-.login_btn {
-  padding: 0 5px;
+.button-padding {
+  padding: 10px 5px;
+  float: right;
 }
 
 #avatar_container {
@@ -84,4 +79,19 @@ label {
 .dropdown-toggle:hover {
   background-color: rgb(170, 16, 62);
   border-color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .hide-rule {
+    display: none;
+  }
+
+  .avatar {
+    width: 85%;
+    height: auto;
+  }
+
+  .member-name {
+    font-size: 30px;
+  }
 }
