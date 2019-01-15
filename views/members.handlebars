@@ -1,36 +1,36 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
-    </div>
-  </div>
-</nav>
-
+<br>
+<div class="container">
+  <nav class="navbar navbar-collapse float-right navbar-nav navbar-light bg-none">
+    <form class="form-inline">
+      <a href="/logout"><button class="btn btn-primary" id="submit" type="button">Logout
+        </button></a>
+      </span><span class="button-padding"></span>
+      <a href="/account"><button class="btn btn-primary" id="submit" type="button">View Account
+          Info
+        </button></a>
+    </form>
+  </nav>
+</div>
+<br>
 
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
+      <div class="col-6 offset-3">
         <br>
-        <a href="/">
-          <span class="tama tama_fix">Tama</span><span class="fit">Fit</span>
-        </a>
-        <br>
-        <hr class="type_6 animated bounceInDown">
+        <span class="app_title"><a href="/">
+            <span class="tama tama_fix">Tama</span><span class="fit">Fit</span>
+          </a></span>
       </div>
     </div>
+    <hr class="type_6 animated bounceInDown">
   </div>
 
   <div class="animated bounceInUp">
     <h1>Welcome <span class="member-name"></span></h1>
     <br>
-    <a href="/account">View Account Info</a>
   </div>
 
-</div>
-<div class="animated bounceInUp">
 
   {{!-- container for dropdowns --}}
   <div class="container">
@@ -43,6 +43,9 @@
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Exercise Selection
           </button>
+          <br class="dropdown-spacer">
+          <br class="dropdown-spacer">
+
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
