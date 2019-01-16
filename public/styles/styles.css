@@ -14,6 +14,10 @@ body {
   background: linear-gradient(to bottom, #6e529d 0%, #d97b93 100%) fixed;
 }
 
+.row {
+  margin: 0;
+}
+
 .type_6 {
   border: 0;
   width: 90%;
