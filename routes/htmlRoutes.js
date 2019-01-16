@@ -4,28 +4,44 @@ var db = require("../models");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
-   // Load index page
-   app.get("/", function (req, res) {
-    if (req.user) {res.redirect("/members");}
-    else {res.render("index")};
+  // Load index page
+  app.get("/", function (req, res) {
+    if (req.user) {
+      res.redirect("/members");
+    } else {
+      res.render("index")
+    };
   });
 
 
-  app.get("/account", function(req, res) {
-    if (req.user) {res.render("account", {email:req.user.email, id:req.user.id})}
-    else if (!req.user) {res.render("index")};
+  app.get("/account", function (req, res) {
+    if (req.user) {
+      res.render("account", {
+        email: req.user.email,
+        id: req.user.id,
+        createdAt: req.user.createdAt.substring(0, 10)
+      })
+    } else if (!req.user) {
+      res.render("index")
+    };
   });
 
   app.get("/login", function (req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {res.redirect("/members");}
-    else {res.render("login_page")};
+    if (req.user) {
+      res.redirect("/members");
+    } else {
+      res.render("login_page")
+    };
   });
 
   app.get("/signup", function (req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {res.redirect("/members");}
-    else {res.render("signup")};
+    if (req.user) {
+      res.redirect("/members");
+    } else {
+      res.render("signup")
+    };
   });
 
   // if user is logged in, allow access to members page

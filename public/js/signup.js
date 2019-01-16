@@ -15,10 +15,12 @@ $(document).ready(function () {
     $.post("/api/signup", {
       email: email,
       password: password
-    }).then(function (data) {
-      window.location.replace(data);
-      // If there's an error, handle it by throwing up a bootstrap alert
-    }).catch(handleLoginErr);
+    })
+      .then(function (data) {
+        window.location.replace(data);
+        // If there's an error, handle it by throwing up a bootstrap alert
+      })
+      .catch(handleLoginErr);
   }
 
   // When the signup button is clicked, we validate the email and password are not blank
