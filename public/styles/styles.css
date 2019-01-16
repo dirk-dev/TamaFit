@@ -5,7 +5,7 @@
 body,
 html {
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 body {
   width: 100%;
@@ -14,12 +14,27 @@ body {
   background: linear-gradient(to bottom, #6e529d 0%, #d97b93 100%);
 }
 
+.container {
+  margin: 0 auto;
+}
+
+.row {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .type_6 {
   border: 0;
   width: 90%;
   height: 55px;
   background-image: url(../images/type_6.png);
   background-repeat: no-repeat;
+}
+
+.header-container {
+  width: 100%;
 }
 
 h1 {
