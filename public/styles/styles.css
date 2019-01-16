@@ -14,7 +14,7 @@ body {
   background: linear-gradient(to bottom, #6e529d 0%, #d97b93 100%) fixed;
 }
 
-.type_6 {s
+.type_6 {
   border: 0;
   width: 90%;
   height: 55px;
@@ -22,8 +22,9 @@ body {
   background-repeat: no-repeat;
 }
 
-.header-container {
-  width: 100%;
+a.no-underline:hover {
+  text-decoration: none;
+  text-shadow: 0px 0px #d7dcf7;
 }
 
 h1 {
@@ -32,11 +33,17 @@ h1 {
   font-size: 55px;
 }
 
+.login-link {
+  font-size: 30px;
+}
+
 .fit {
   font-weight: bold;
   font-family: "Raleway", sans-serif;
   font-size: 72px;
   background: linear-gradient(to right, #4674dd 0%, #13a306 100%);
+  -clip: text;
+  -background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(3px 3px 6px #060a0d);
@@ -47,6 +54,8 @@ h1 {
   font-family: "ZCOOL KuaiLe", cursive;
   font-size: 72px;
   background: linear-gradient(to right, red 0%, yellow 100%);
+  -clip: text;
+  -background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(3px 3px 6px #060a0d);
