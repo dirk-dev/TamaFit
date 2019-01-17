@@ -20,8 +20,8 @@ module.exports = function(app) {
         id: req.user.id,
         createdAt: req.user.createdAt.substring(0, 10)
       });
-    } else if (!req.user) {
-      res.render("account");
+    } else (!req.user) {
+      res.render("index");
     }
   });
 
