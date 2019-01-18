@@ -1,8 +1,6 @@
-// double check where posts is replaced with logs and when not to
-
 $(document).ready(function() {
-  // Getting jQuery references to the log comments, title, form, and workout select
-  var commentsInput = $("#comments");
+  // Getting jQuery references to the log comment, title, form, and workout select
+  var commentInput = $("#comment");
   // var titleInput = $("#title");
   var cmsForm = $("#cms");
   var workoutSelect = $("#workout");
@@ -32,11 +30,11 @@ $(document).ready(function() {
   // A function for handling what happens when the form to create a new log is submitted
   function handleFormSubmit(event) {
     event.preventDefault();
-    // Wont submit the log if we are missing a comments, title, or workout
-    // if (!titleInput.val().trim() || !commentsInput.val().trim() || !workoutSelect.val()) {
+    // Wont submit the log if we are missing a comment, title, or workout
+    // if (!titleInput.val().trim() || !commentInput.val().trim() || !workoutSelect.val()) {
     //   return;
     // }
-    if (!commentsInput.val().trim() || !workoutSelect.val()) {
+    if (!commentInput.val().trim() || !workoutSelect.val()) {
       return;
     }
     // Constructing a newLog object to hand to the database
@@ -44,10 +42,10 @@ $(document).ready(function() {
       // title: titleInput
       //   .val()
       //   .trim(),
-      comments: commentsInput
+      comment: commentInput
         .val()
         .trim(),
-      workoutId: workoutSelect.val()
+      WorkoutId: workoutSelect.val()
     };
 
     // If we're updating a log run updateLog to update a log
@@ -86,7 +84,7 @@ $(document).ready(function() {
         console.log(data.workoutId || data.id);
         // If this log exists, prefill our cms forms with its data
         // titleInput.val(data.title);
-        commentsInput.val(data.comments);
+        commentInput.val(data.comment);
         workoutId = data.workoutId || data.id;
         // If we have a log with this id, set a flag for us to know to update the log
         // when we hit submit

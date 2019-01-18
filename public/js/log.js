@@ -80,27 +80,27 @@ $(document).ready(function() {
     // var newLogTitle = $("<h2>");
     var newLogDate = $("<small>");
     var newLogWorkout = $("<h5>");
-    newLogWorkout.text("Written by: " + log.Workout.name);
+    newLogWorkout.text("Workout type: " + log.Workout.name);
     newLogWorkout.css({
       float: "right",
       color: "blue",
       "margin-top":
       "-10px"
     });
-    var newLogCardComments = $("<div>");
-    newLogCardComments.addClass("card-comments");
-    var newLogComments = $("<p>");
+    var newLogCardComment = $("<div>");
+    newLogCardComment.addClass("card-comment");
+    var newLogComment = $("<p>");
     // newLogTitle.text(log.title + " ");
-    newLogComments.text(log.comments);
+    newLogComment.text(log.comment);
     newLogDate.text(formattedDate);
     // newLogTitle.append(newLogDate);
     newLogCardHeading.append(deleteBtn);
     newLogCardHeading.append(editBtn);
     // newLogCardHeading.append(newLogTitle);
     newLogCardHeading.append(newLogWorkout);
-    newLogCardComments.append(newLogComments);
+    newLogCardComment.append(newLogComment);
     newLogCard.append(newLogCardHeading);
-    newLogCard.append(newLogCardComments);
+    newLogCard.append(newLogCardComment);
     newLogCard.data("log", log);
     return newLogCard;
   }
@@ -128,7 +128,7 @@ $(document).ready(function() {
     var query = window.location.search;
     var partial = "";
     if (id) {
-      partial = " for Workout #" + id;
+      partial = " for Workout:" + id;
     }
     logContainer.empty();
     var messageH2 = $("<h2>");

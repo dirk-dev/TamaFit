@@ -26,7 +26,7 @@ module.exports = function(app) {
     });
   });
 
-  app.Log("/api/workouts", function(req, res) {
+  app.post("/api/workouts", function(req, res) {
     db.Workout.create(req.body).then(function(dbWorkout) {
       res.json(dbWorkout);
     });

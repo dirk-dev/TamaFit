@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
     // Associating Workout with Logs
     // When a Workout is deleted, also delete any associated Logs
     Workout.hasMany(models.Log, {
-      // onDelete: "cascade"
+      onDelete: "cascade"
     });
   };
 
