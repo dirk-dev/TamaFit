@@ -15,15 +15,15 @@
 
 <div id="home">
 	<div class="container">
-		<div class="row">
-			<div>
+		<div class="col-8 offset-2">
+			<div class="animated bounceInDown">
 				<br>
-				<span class="app_title"><a href="/">
+				<span class="app_title"><a href="/" class="no-underline">
 						<span class="tama tama_fix">Tama</span><span class="fit">Fit</span>
 					</a></span>
 			</div>
+			<hr class="type_6 animated bounceInDown hide-rule">
 		</div>
-		<hr class="type_6 animated bounceInDown">
 	</div>
 
 	<div class="animated bounceInUp">
@@ -31,15 +31,16 @@
 		<br>
 	</div>
 
-<div class="container hidden">
+	<div class="container hidden">
 		<div class="row top-30">
-      <div class="col-md-2 col-sm-2">
-        <a class="btn btn-light" href="/log">Go to Logs</a>
-      </div>
-      <div class="col-md-2 col-sm-2">
-        <a class="btn btn-light" href="/workouts">Manage Workouts</a>
-      </div>
-    </div>
+			<div class="col text-center">
+				<a class="btn btn-light body-buttons" href="/log">Go to Logs</a>
+			</div>
+			<div class="col text-center">
+				<a class="btn btn-light body-buttons" href="/workouts">Manage Workouts</a>
+			</div>
+		</div>
+		<br>
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<form id="cms">
@@ -52,7 +53,7 @@
 						<div class="form-group">
 							<label for="category">Select Workout:</label>
 							<select class="custom-select" id="workout">
-  						</select>
+							</select>
 						</div>
 						<br />
 						<button type="submit" class="btn btn-success submit">Submit</button>
