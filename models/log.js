@@ -1,15 +1,6 @@
-// models folder
-
 module.exports = function(sequelize, DataTypes) {
   var Log = sequelize.define("Log", {
-    // title: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    //   validate: {
-    //     len: [1]
-    //   }
-    // },
-    body: {
+    comment: {
       type: DataTypes.TEXT,
       allowNull: false,
       len: [1]
@@ -17,8 +8,8 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Log.associate = function(models) {
-    // We're saying that a Log should belong to a User
-    // A Log can't be created without anUser due to the foreign key constraint
+    // We're saying that a Log should belong to a Workout
+    // A Log can't be created without an Workout due to the foreign key constraint
     Log.belongsTo(models.Workout, {
       foreignKey: {
         allowNull: false

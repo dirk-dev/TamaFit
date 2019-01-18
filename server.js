@@ -30,9 +30,11 @@ app.set("view engine", "handlebars");
 
 // Routes
 // require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/log-apiRoutes")(app);
+require("./routes/log-htmlRoutes")(app);
+require("./routes/login-htmlRoutes")(app);
 require("./routes/user-apiRoutes")(app);
-// require("./routes/workout-apiRoutes")(app);
+require("./routes/workout-apiRoutes")(app);
 
 var syncOptions = { force: false };
 
