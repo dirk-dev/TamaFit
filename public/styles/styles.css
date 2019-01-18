@@ -14,7 +14,18 @@ body {
   background: linear-gradient(to bottom, #6e529d 0%, #d97b93 100%) fixed;
 }
 
-.type_6 {s
+.container {
+  margin: 0 auto;
+}
+
+.row {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.type_6 {
   border: 0;
   width: 90%;
   height: 55px;
