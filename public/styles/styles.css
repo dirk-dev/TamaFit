@@ -38,8 +38,9 @@ a.no-underline:hover {
 
 h1 {
   text-align: center;
-  font-family: "ZCOOL KuaiLe", cursive;
-  font-size: 55px;
+  /* font-family: "ZCOOL KuaiLe", cursive; */
+  font-family: "Ubuntu", sans-serif;
+  font-size: 50px;
 }
 
 .enlarged-link {
@@ -93,14 +94,18 @@ label {
   border-color: white;
 }
 
-.dropdown-toggle {
+.dropdown-toggle,
+.body-buttons {
   background-color: rgb(9, 9, 160);
   border-color: white;
+  color: white;
 }
 
-.dropdown-toggle:hover {
+.dropdown-toggle:hover,
+.body-buttons:hover {
   background-color: rgb(170, 16, 62);
   border-color: white;
+  color: white;
 }
 
 @media only screen and (max-width: 768px) {
@@ -113,7 +118,8 @@ label {
     height: auto;
   }
 
-  .member-name {
+  .member-name,
+  .h1-mobile-responsive {
     font-size: 30px;
   }
 }
