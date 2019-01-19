@@ -19,6 +19,14 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  User.associate = function(models) {
+    // Associating User with Workouts
+    // When a Workout is deleted, also delete any associated Logs
+    User.hasMany(models.Workout, {
+      onDelete: "cascade"
+    });
+  };
+
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
