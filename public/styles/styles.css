@@ -108,6 +108,18 @@ label {
   color: white;
 }
 
+.tamagatchi {
+  height: 105px;
+  width: auto;
+  margin: 5px;
+}
+
+.tamagatchi:hover {
+  background: rgba(0, 0, 0, 0);
+  color: #3a7999;
+  box-shadow: inset 0 0 0 3px #3a7999;
+}
+
 @media only screen and (max-width: 768px) {
   .hide-rule {
     display: none;
@@ -122,16 +134,10 @@ label {
   .h1-mobile-responsive {
     font-size: 30px;
   }
-}
 
-.tamagatchi {
-  height: 105px;
-  width: auto;
-  margin: 5px;
-}
-
-.tamagatchi:hover {
-    background: rgba(0,0,0,0);
-    color: #3a7999;
-    box-shadow: inset 0 0 0 3px #3a7999;
+  .tamagatchi {
+    height: 85px;
+    width: auto;
+    margin: 5px;
+  }
 }
