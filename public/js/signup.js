@@ -1,8 +1,9 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
+  var selectAvatar = $("img.tamagatchi");
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
@@ -16,7 +17,7 @@ $(document).ready(function () {
       email: email,
       password: password
     })
-      .then(function (data) {
+      .then(function(data) {
         window.location.replace(data);
         // If there's an error, handle it by throwing up a bootstrap alert
       })
@@ -24,7 +25,7 @@ $(document).ready(function () {
   }
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function (event) {
+  signUpForm.on("submit", function(event) {
     event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
@@ -40,4 +41,16 @@ $(document).ready(function () {
     passwordInput.val("");
   });
 
+  selectAvatar.on("click", function(event) {
+    var state = $(this).attr("data-clicked");
+    console.log(this);
+    console.log("state: " + state);
+    if (state === "false") {
+      // grab all of the images in span and set data-clicked attr to false
+      // then grab the one clicked and set to true
+      $(this).attr("data-clicked", "true");
+    } else {
+      $(this).attr("data-clicked", "false");
+    }
+  });
 });
