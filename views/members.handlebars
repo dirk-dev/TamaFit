@@ -15,68 +15,71 @@
 
 <div id="home">
     <div class="container">
-        <div class="row">
-            <div class="col-8 offset-2">
+        <div class="col-8 offset-2">
+            <div class="animated bounceInDown">
                 <br>
-
                 <a href="/" class="no-underline">
                     <span class="tama">Tama</span><span class="fit">Fit</span>
                 </a>
                 <hr class="type_6 animated bounceInDown hide-rule">
-
-  <div class="animated bounceInUp">
-    <h1>Welcome <span class="member-name"></span></h1>
-    <br>
-    <center><a href="/log">See all logs</a></center>
-  </div>
-
-        {{!-- container for dropdowns --}}
-        <div class="row">
-            <div class="col text-center">
-
-                {{!-- exercise selection dropdown --}}
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="ExerciseSelectDropdown"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Exercise Selection
-                    </button>
-                    <br class="dropdown-spacer">
-                    <br class="dropdown-spacer">
-                    <label for="start">Start date:</label>
-                    <form class="create-form" action="" method="POST">
-                        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01"
-                            max="2025-12-31">
-                    </form>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Run</a>
-                        <a class="dropdown-item" href="#">Lift</a>
-                        <a class="dropdown-item" href="#">Bike</a>
-                        <a class="dropdown-item" href="#">Swim</a>
-                        <a class="dropdown-item" href="#">Walk</a>
-                    </div>
-                </div>
             </div>
 
-            {{!-- exercise history dropdown --}}
-            <div class="col text-center">
-                <div class="dropdown">
+            <div class="animated bounceInUp">
+                <h1>Welcome <span class="member-name"></span></h1>
+                <br>
+                <center><a href="/log" class="enlarged-link">See all of your logs</a></center>
+                <br>
+            </div>
 
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="ExerciseHistoryDropdown"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Exercise History
-                    </button>
+            {{!-- container for dropdowns --}}
+            <div class="row">
+                <div class="col text-center">
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    {{!-- exercise selection dropdown --}}
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="ExerciseSelectDropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Exercise Selection
+                        </button>
+                        <br class="dropdown-spacer">
+                        <br class="dropdown-spacer">
+                        <label for="start"><strong>Start date:</strong></label>
+
+                        <form class="create-form" action="" method="POST">
+                            <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01"
+                                max="2025-12-31">
+                        </form>
+                        <br>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Run</a>
+                            <a class="dropdown-item" href="#">Lift</a>
+                            <a class="dropdown-item" href="#">Bike</a>
+                            <a class="dropdown-item" href="#">Swim</a>
+                            <a class="dropdown-item" href="#">Walk</a>
+                        </div>
+                    </div>
+                </div>
+
+                {{!-- exercise history dropdown --}}
+                <div class="col text-center">
+                    <div class="dropdown">
+
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="ExerciseHistoryDropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Exercise History
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="/js/members.js"></script>
