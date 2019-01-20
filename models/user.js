@@ -19,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     imgUrl: {
       type: DataTypes.STRING,
+      allowNull: false,
     }
   });
 

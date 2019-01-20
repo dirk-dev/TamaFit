@@ -3,6 +3,6 @@ $(document).ready(function() {
   // and updates the HTML on the page
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
-    // $(".member-img").img(data.imgUrl);
+    $(".member-img").img(data.imgUrl);
   });
 });
