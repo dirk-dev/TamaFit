@@ -4,6 +4,7 @@ $(document).ready(function() {
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
   var selectAvatar = $("img.tamagatchi");
+  var imgUrl = ""
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
@@ -15,7 +16,8 @@ $(document).ready(function() {
   function signUpUser(email, password) {
     $.post("/api/signup", {
       email: email,
-      password: password
+      password: password,
+      imgUrl: imgUrl
     })
       .then(function(data) {
         window.location.replace(data);
@@ -43,14 +45,21 @@ $(document).ready(function() {
 
   selectAvatar.on("click", function(event) {
     var state = $(this).attr("data-clicked");
-    console.log(this);
     console.log("state: " + state);
     if (state === "false") {
+      imgUrl = $(this).attr("src")
+      console.log(imgUrl)
+      var allImgTagsFalse = $(this).parent().children().attr("data-clicked", "false")
+      allImgTagsFalse.removeClass("selected")
+      console.log(this)
       // grab all of the images in span and set data-clicked attr to false
       // then grab the one clicked and set to true
       $(this).attr("data-clicked", "true");
+      $(this).addClass("selected")
     } else {
       $(this).attr("data-clicked", "false");
+      $(this).removeClass("selected")
     }
   });
 });
+//  use imgurl in post route to assign to user profile

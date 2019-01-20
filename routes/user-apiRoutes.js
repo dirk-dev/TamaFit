@@ -20,7 +20,8 @@ module.exports = function (app) {
     console.log(req.body);
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      imgUrl: req.body.imgUrl
     }).then(function () {
       res.redirect(307, "/api/login");
     }).catch(function (err) {
@@ -46,7 +47,8 @@ module.exports = function (app) {
       res.json({
         email: req.user.email,
         id: req.user.id,
-        createdAt: req.user.createdAt
+        createdAt: req.user.createdAt,
+        imgUrl: req.user.imgUrl
       });
     }
   });

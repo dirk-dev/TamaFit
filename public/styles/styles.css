@@ -130,6 +130,10 @@ label {
   margin: 5px;
 }
 
+.selected {
+  border: 2px solid black;
+}
+
 .tamagatchi:hover {
     background: rgba(0,0,0,0);
     color: #3a7999;
