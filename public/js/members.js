@@ -3,16 +3,6 @@ $(document).ready(function() {
   // and updates the HTML on the page
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
+    // $(".member-img").img(data.imgUrl);
   });
-
-  const data = {
-    avatarArray: [
-      "../public/images/anime_spacytchi.png",
-      "../public/images/chamanetchi_anime.png",
-      "../public/images/gozarutchi_anime.png",
-      "../public/images/kikitchi_anime.png",
-      "../public/images/mametchi_anime_large.png",
-      "../public/images/th.png"
-    ]
-  };
 });

@@ -47,8 +47,9 @@ module.exports = function (app) {
       res.json({
         email: req.user.email,
         id: req.user.id,
+        imgUrl: req.user.imgUrl,
         createdAt: req.user.createdAt,
-        imgUrl: req.user.imgUrl
+        
       });
     }
   });
