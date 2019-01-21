@@ -29,12 +29,16 @@
                 <div class="member-img"></div>
                 
                 <br>
-                <div class="text-center"><a href="/log" class="enlarged-link">See all of your logs</a></div>
+                <div class="text-center"><a href="/log" class="enlarged-link">See all of your
+                        exercise logs</a></div>
+                <br>
+                <h5>Select an new exercise, or one you have done in the past. Then select the
+                    workout date and log your workout.</h5>
                 <br>
             </div>
 
             {{!-- container for dropdowns --}}
-            <div class="row">
+            <div class="row animated bounceInUp">
                 <div class="col text-center">
 
                     {{!-- exercise selection dropdown --}}
@@ -47,8 +51,8 @@
                         <br class="dropdown-spacer">
                         <label for="start"><strong>Start date:</strong></label>
 
-                        <form class="create-form" action="" method="POST">
-                            <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01"
+                        <form class="create-form text-center" action="" method="POST">
+                            <input type="date" id="start" name="trip-start" value="2019-01-24" min="2018-01-01"
                                 max="2025-12-31">
                         </form>
                         <br>
@@ -65,18 +69,22 @@
                 {{!-- exercise history dropdown --}}
                 <div class="col text-center">
                     <div class="dropdown">
-
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="ExerciseHistoryDropdown"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Exercise History
                         </button>
-
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="col text-center">
+                    <a class="btn btn-light body-buttons" href="#">Log your workout</a>
                 </div>
             </div>
         </div>
