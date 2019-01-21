@@ -5,28 +5,27 @@ TamaFit is a full stack web application that will track a users workout history 
 ## Getting Started
 
 In order to get started just click here ['TamaFit'](https://github.com/dirk-kiesewetter/Project-2) to be taken to the website. Be prepared to make a new account and enjoy your new TamaFit experience. 
-
 <!-- These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system. -->
 ## Built With
 
+* [Bootstrap](https://getbootstrap.com/) - Front-end framework for developing websites and web applications.
+* [Handlebars.js](https://handlebarsjs.com) - Templating engine.  It is based on the Mustache template language.
+* [Heroku](https://heroku.com) - Heroku is a cloud platform as a service supporting several programming languages.
+* [JawsDB MySQL](https://elements.heroku.com/addons/jawsdb) - Add-on for providing a fully functional MySQL Database server for use with Heroku application.
 * [JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - High-level programming language.
 * [MAMP](https://www.mamp.info/en/) - Local server enviroment.
 * [MySQL](https://www.mysql.com/products/workbench/) - Visual tool for database architects.
-* [JawsDB MySQL](https://elements.heroku.com/addons/jawsdb) - Add-on for providing a fully functional MySQL Database server for use with Heroku application
 * [Node.js](https://nodejs.org/en/) - Open-source run-time environment that executes JS code outside of a browser.
-* [VSC](https://code.visualstudio.com/) - Visual Studio Code is a source code editor developed by Microsoft.
-* [Bootstrap](https://getbootstrap.com/) - Front-end framework for developing websites and web applications.
-* [Heroku](https://heroku.com) - Heroku is a cloud platform as a service supporting several programming languages.
-* [Handlebars.js](https://handlebarsjs.com) - Templating engine.  It is based on the Mustache template language.
 * [npm](https://www.npmjs.com/) - npm is a package manager for the JavaScript programming language.
+* [VSC](https://code.visualstudio.com/) - Visual Studio Code is a source code editor developed by Microsoft.
     #### npm Packages Used:
     * [animate.css](https://daneden.github.io/animate.css/) - Just-add-water CSS animations!
-    * [bcrypt-nodejs](https://www.npmjs.com/package/bcrypt) - bcrypt is a password hashing function designed by Niels Provos and David Mazières
-    * [dotenv](https://www.npmjs.com/package/dotenv) - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
+    * [bcrypt-nodejs](https://www.npmjs.com/package/bcrypt) - bcrypt is a password hashing function designed by Niels Provos and David Mazières.
+    * [dotenv](https://www.npmjs.com/package/dotenv) - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.
     * [express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for node.
     * [express-handlebars](https://www.npmjs.com/package/express-handlebars) - A Handlebars view engine for Express which doesn't suck.
     * [express-session](https://www.npmjs.com/package/express-session) - 
-Simple session middleware for Express
+Simple session middleware for Express.
     * [mysql2](https://www.npmjs.com/package/mysql2) - MySQL client for Node.js with focus on performance. Supports prepared statements, non-utf8 encodings, binary log protocol, compression, ssl and much more.
     * [nodemon](https://www.npmjs.com/package/nodemon) - Nodemon is a utility that will monitor for any changes in your source and automatically restart your server.
     * [passport](https://www.npmjs.com/package/passport) - Passport is Express-compatible authentication middleware for Node.js.
@@ -41,20 +40,14 @@ Simple session middleware for Express
 
 ## Authors
 
-* **Timothy Charette** - *Initial work* - [charettetimothy](https://github.com/charettetimothy)
-* **DIRK KIESEWETTER** - *Initial work* - [dirk-kiesewetter](https://github.com/dirk-kiesewetter)
-* **Pauline Senh** - *Initial work* - [plsenh](https://github.com/plsenh)
+* **Dirk Kiesewetter** - *Initial work* - [dirk-kiesewetter](https://github.com/dirk-kiesewetter)
 * **Michael Perilli** - *Initial work* - [OSCOdin](https://github.com/OSCOdin)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* **Pauline Senh** - *Initial work* - [plsenh](https://github.com/plsenh)
+* **Timothy Charette** - *Initial work* - [charettetimothy](https://github.com/charettetimothy)
 
 ## Acknowledgments
 
 * Hat tip to anyone whose code was used!
-* Instructor [Kristofer Pelchat]
-* etc
 
 <!-- # Project-2
 
