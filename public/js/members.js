@@ -4,6 +4,6 @@ $(document).ready(function() {
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
     console.log(data)
-    $(".member-img").img(data.imgUrl);
+    $(".member-img").html("<img src= ' " + data.imgUrl + "'>");
   });
 });
