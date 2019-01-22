@@ -4,7 +4,8 @@ $(document).ready(function() {
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
   var selectAvatar = $("img.tamagatchi");
-  var imgUrlInput = ""
+  var imgUrl = ""
+  
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
@@ -30,10 +31,12 @@ $(document).ready(function() {
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {
     event.preventDefault();
+    var imgQuerySelector = document.querySelector(".selected").src;
+    console.log(imgQuerySelector)
     var userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
-      imgUrl: imgUrlInput.val().trim()
+      imgUrl: imgQuerySelector
     };
 
     if (!userData.email || !userData.password || !userData.imgUrl) {
@@ -47,6 +50,7 @@ $(document).ready(function() {
   });
 
   selectAvatar.on("click", function(event) {
+    event.preventDefault();
     var state = $(this).attr("data-clicked");
     console.log("state: " + state);
     if (state === "false") {
