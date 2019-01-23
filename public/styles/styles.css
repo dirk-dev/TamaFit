@@ -36,6 +36,28 @@ body {
   background-repeat: no-repeat;
 }
 
+a {
+  color: #7246bd;
+}
+
+a.text-link {
+  text-decoration: none;
+  color: #000;
+  background-image: linear-gradient(180deg, #ffa053, #ffed48);
+  background-repeat: no-repeat;
+  background-position: 0px bottom;
+  background-size: 100% 10px;
+}
+
+a.text-link:hover {
+  text-decoration: none;
+  color: #000;
+  background-image: linear-gradient(180deg, #3fda31, #40c2ff);
+  background-repeat: no-repeat;
+  background-position: 0px bottom;
+  background-size: 100% 10px;
+}
+
 a.no-underline:hover {
   text-decoration: none;
   text-shadow: 0px 0px #d7dcf7;
@@ -56,7 +78,7 @@ h5 {
 }
 
 .enlarged-link {
-  font-size: 30px;
+  font-size: 24px;
 }
 
 .tama,

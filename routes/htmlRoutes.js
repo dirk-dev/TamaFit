@@ -5,6 +5,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", function(req, res) {
+    // If the user is already logged in, send them to the members page
     if (req.user) {
       res.redirect("/members");
     } else {
@@ -13,7 +14,6 @@ module.exports = function(app) {
   });
 
   app.get("/login", function(req, res) {
-    // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/members");
     } else {
@@ -22,7 +22,6 @@ module.exports = function(app) {
   });
 
   app.get("/signup", function(req, res) {
-    // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/members");
     } else {
@@ -33,19 +32,7 @@ module.exports = function(app) {
   // if user is logged in, allow access to members page
   app.get("/members", isAuthenticated, function(req, res) {
     res.render("members");
-    // if (req.user) {
-    //   res.redirect("/members/?user_id=2");
-    // }
   });
-
-  // app.get("/members/:id", isAuthenticated, function(req, res) {
-  //   res.render("members");
-  //   db.Log.findAll({ where: { UserId: req.params.id } }).then(function(dbLog) {
-  //     res.render("members", {
-  //       example: dbLog
-  //     });
-  //   });
-  // });
 
   app.get("/account", function(req, res) {
     if (req.user) {
@@ -72,7 +59,7 @@ module.exports = function(app) {
     }
   });
 
-  // users route loads user-manager
+  // loads user-manager for admin
   app.get("/users", isAuthenticated, function(req, res) {
     res.render("user-manager");
   });

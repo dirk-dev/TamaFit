@@ -10,7 +10,6 @@ $(document).ready(function () {
   var loggedInId = $("#user");
   var memberId;
 
-  
   $.get("/api/user_data").then(function (data) {
     // $(".member-id").text(data.id);
     memberId = data.id;

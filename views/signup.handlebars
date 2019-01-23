@@ -1,11 +1,12 @@
 <div id="home">
   <div class="container">
-    <div>
-      <div class="col-10 offset-1">
+    <div class="row">
+      <div class="col-8 offset-2">
 
         {{!-- form start --}}
         <div class="animated bounceInUp">
           <h2>Sign Up Form</h2>
+          <p>Already have an account? Log in <a href="/login" class="text-link">here</a></p>
           <form class="signup">
 
             <div class="form-group row">
@@ -43,7 +44,8 @@
 
             {{!-- avatar selection --}}
             <div>
-              <p>Select an avatar: </p>
+              <br>
+              <p class="text-center"><strong>Select your avatar:</strong> (you can change this later) </p>
             </div>
 
             <span class="avatar-imgs">
@@ -57,12 +59,9 @@
             <br>
             <br>
 
-            {{!-- sign up or login --}}
             <div class="text-center"><button type="submit" class="btn btn-default text-center">Sign
                 Up</button>
-              <br>
-              <br>
-              <p class="login-link enlarged-link">Or log in <a href="/login">here</a></p>
+                <br>
             </div>
 
           </form>

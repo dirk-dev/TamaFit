@@ -38,7 +38,7 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = function(models) {
     // Associating User with Logs
-    // When a Log is deleted, also delete any associated Logs
+    // When a User is deleted, also delete any associated Logs
     User.hasMany(models.Log, {
       onDelete: "cascade"
     });
@@ -52,7 +52,11 @@ module.exports = function(sequelize, DataTypes) {
   // Hooks are automatic methods that run during various phases of the User Model lifecycle
   // In this case, before a User is created, we will automatically hash their password
   User.hook("beforeCreate", function(user) {
-    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    user.password = bcrypt.hashSync(
+      user.password,
+      bcrypt.genSaltSync(10),
+      null
+    );
   });
 
   return User;
