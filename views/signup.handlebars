@@ -1,63 +1,76 @@
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
-        <br>
-        <div class="animated bounceInDown">
-          <a href="/" class="no-underline">
-            <span class="tama">Tama</span><span class="fit">Fit</span>
-          </a>
-        </div>
-        <hr class="type_6 animated bounceInDown hide-rule">
+      <div class="col-10 offset-1">
 
+        {{!-- form start --}}
         <div class="animated bounceInUp">
           <h2>Sign Up Form</h2>
           <form class="signup">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="email-input" placeholder="Email">
+
+            <div class="form-group row">
+              <label for="example-text-input" class="col-sm-3 col-form-label">First Name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="first-name-input" placeholder="First Name">
+              </div>
             </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="password-input" placeholder="Password">
+
+            <div class="form-group row">
+              <label for="example-text-input" class="col-sm-3 col-form-label">Last Name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="last-name-input" placeholder="Last Name">
+              </div>
             </div>
+
+            <div class="form-group row">
+              <label for="exampleInputEmail1" class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="email-input" placeholder="Email">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="exampleInputPassword1" class="col-sm-3 col-form-label">Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="password-input" placeholder="Password">
+              </div>
+            </div>
+
             <div style="display: none" id="alert" class="alert alert-danger" role="alert">
               <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
               <span class="sr-only">Error:</span> <span class="msg"></span>
             </div>
+
+            {{!-- avatar selection --}}
             <div>
               <p>Select an avatar: </p>
             </div>
+
             <span class="avatar-imgs">
-              <img src="./images/anime_spacytchi.png" class="tamagatchi" id="1" data-clicked="false"
-                /img> <img src="./images/chamametchi_anime.png" class="tamagatchi" id="2"
-                data-clicked="false"/img> <img src="./images/gozarutchi_anime.png" class="tamagatchi"
-                id="3" data-clicked="false"/img> <img src="./images/kikitchi_anime.png" class="tamagatchi"
-                id="4" data-clicked="false"/img> <img src="./images/mametchi_anime_large.png" class="tamagatchi"
-                id="5" data-clicked="false"/img> <img src="./images/th.png" class="tamagatchi" id="6"
-                data-clicked="false"/img> </span> <br>
+              <img src="./images/anime_spacytchi.png" class="tamagotchi" id="1" data-clicked="false"> <img src="./images/chamametchi_anime.png"
+                class="tamagotchi" id="2" data-clicked="false"> <img src="./images/gozarutchi_anime.png" class="tamagotchi"
+                id="3" data-clicked="false"> <img src="./images/kikitchi_anime.png" class="tamagotchi" id="4"
+                data-clicked="false"> <img src="./images/mametchi_anime_large.png" class="tamagotchi" id="5"
+                data-clicked="false"> <img src="./images/th.png" class="tamagotchi" id="6" data-clicked="false">
+            </span>
+            <br>
+            <br>
+
+            {{!-- sign up or login --}}
+            <div class="text-center"><button type="submit" class="btn btn-default text-center">Sign
+                Up</button>
               <br>
-              <div class="text-center"><button type="submit" class="btn btn-default text-center">Sign
-                  Up</button>
-                <br>
-                <br>
-                <p class="login-link enlarged-link">Or log in <a href="/login">here</a></p>
-              </div>
+              <br>
+              <p class="login-link enlarged-link">Or log in <a href="/login">here</a></p>
+            </div>
+
           </form>
         </div>
-      </div>
-      <ul id="example-list" class="list-group">
-        {{#each examples}}
-        <li data-id="{{this.id}}" class="list-group-item">
-          <a href="example/{{this.id}}">{{this.text}}</a>
-          <button class="btn btn-danger float-right delete">ｘ</button>
-        </li>
-        {{/each}}
-      </ul>
+        {{!-- end form --}}
 
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,11 +1,12 @@
 $(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
+  var selectAvatar = $("img.tamagotchi");
+  var firstNameInput = $("input#first-name-input");
+  var lastNameInput = $("input#last-name-input");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
-  var selectAvatar = $("img.tamagatchi");
-  var imgUrl = ""
-  
+  var imgUrl = "";
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
@@ -14,9 +15,11 @@ $(document).ready(function() {
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(email, password, imgUrl) {
-    console.log("signUpUser-imgUrl: " + imgUrl)
+  function signUpUser(firstName, lastName, email, password, imgUrl) {
+    // console.log("signUpUser-imgUrl: " + imgUrl)
     $.post("/api/signup", {
+      firstName: firstName,
+      lastName: lastName,
       email: email,
       password: password,
       imgUrl: imgUrl
@@ -32,21 +35,36 @@ $(document).ready(function() {
   signUpForm.on("submit", function(event) {
     event.preventDefault();
     var imgQuerySelector = document.querySelector(".selected").src;
-    console.log(imgQuerySelector)
+    // console.log(imgQuerySelector);
     var userData = {
+      firstName: firstNameInput.val().trim(),
+      lastName: lastNameInput.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim(),
       imgUrl: imgQuerySelector
     };
 
-    if (!userData.email || !userData.password || !userData.imgUrl) {
+    if (
+      !userData.firstName ||
+      !userData.lastName ||
+      !userData.email ||
+      !userData.password ||
+      !userData.imgUrl
+    ) {
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(userData.email, userData.password, userData.imgUrl);
+    signUpUser(
+      userData.firstName,
+      userData.lastName,
+      userData.email,
+      userData.password,
+      userData.imgUrl
+    );
+    firstNameInput.val("");
+    lastNameInput.val("");
     emailInput.val("");
     passwordInput.val("");
-
   });
 
   selectAvatar.on("click", function(event) {
@@ -54,18 +72,21 @@ $(document).ready(function() {
     var state = $(this).attr("data-clicked");
     console.log("state: " + state);
     if (state === "false") {
-      imgUrl = $(this).attr("src")
-      console.log("image" + imgUrl)
-      var allImgTagsFalse = $(this).parent().children().attr("data-clicked", "false")
-      allImgTagsFalse.removeClass("selected")
-      console.log("this" + this)
+      imgUrl = $(this).attr("src");
+      console.log("image" + imgUrl);
+      var allImgTagsFalse = $(this)
+        .parent()
+        .children()
+        .attr("data-clicked", "false");
+      allImgTagsFalse.removeClass("selected");
+      console.log("this" + this);
       // grab all of the images in span and set data-clicked attr to false
       // then grab the one clicked and set to true
       $(this).attr("data-clicked", "true");
-      $(this).addClass("selected")
+      $(this).addClass("selected");
     } else {
       $(this).attr("data-clicked", "false");
-      $(this).removeClass("selected")
+      $(this).removeClass("selected");
     }
   });
 });

@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
   /* global moment */
 
   // logContainer holds all of our logs
-  var logContainer = $(".blog-container");
+  var logContainer = $(".log-container");
   var logCategorySelect = $("#category");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handleLogDelete);
@@ -10,33 +10,31 @@ $(document).ready(function() {
   // Variable to hold our logs
   var logs;
 
-  // The code below handles the case where we want to get blog logs for a specific workout
-  // Looks for a query param in the url for workout_id
+  // The code below handles the case where we want to get workout logs for a specific user
+  // Looks for a query param in the url for user_id
   var url = window.location.search;
-  var workoutId;
-  if (url.indexOf("?workout_id=") !== -1) {
-    workoutId = url.split("=")[1];
-    getlogs(workoutId);
+  var userId;
+  if (url.indexOf("?user_id=") !== -1) {
+    userId = url.split("=")[1];
+    getLogs(userId);
   }
-  // If there's no workoutId we just get all logs as usual
+  // If there's no userId we just get all logs as usual
   else {
-    getlogs();
+    getLogs();
   }
-
 
   // This function grabs logs from the database and updates the view
-  function getlogs(workout) {
-    workoutId = workout || "";
-    if (workoutId) {
-      workoutId = "/?workout_id=" + workoutId;
+  function getLogs(user) {
+    userId = user || "";
+    if (userId) {
+      userId = "/?user_id=" + userId;
     }
-    $.get("/api/logs" + workoutId, function(data) {
+    $.get("/api/logs" + userId, function (data) {
       console.log("logs", data);
       logs = data;
       if (!logs || !logs.length) {
-        displayEmpty(workout);
-      }
-      else {
+        displayEmpty(user);
+      } else {
         initializeRows();
       }
     });
@@ -47,10 +45,9 @@ $(document).ready(function() {
     $.ajax({
       method: "DELETE",
       url: "/api/logs/" + id
-    })
-      .then(function() {
-        getlogs(logCategorySelect.val());
-      });
+    }).then(function () {
+      getLogs(logCategorySelect.val());
+    });
   }
 
   // InitializeRows handles appending all of our constructed log HTML inside logContainer
@@ -66,41 +63,39 @@ $(document).ready(function() {
   // This function constructs a log's HTML
   function createNewRow(log) {
     var formattedDate = new Date(log.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+    formattedDate = moment(formattedDate).format("MMMM Do YYYY");
     var newLogCard = $("<div>");
     newLogCard.addClass("card");
-    var newLogCardHeading = $("<div>");
-    newLogCardHeading.addClass("card-header");
+    var LogCardHeader = $("<div>");
+    LogCardHeader.addClass("card-header");
     var deleteBtn = $("<button>");
     deleteBtn.text("x");
     deleteBtn.addClass("delete btn btn-danger");
     var editBtn = $("<button>");
     editBtn.text("EDIT");
     editBtn.addClass("edit btn btn-info");
-    // var newLogTitle = $("<h2>");
-    var newLogDate = $("<small>");
-    var newLogWorkout = $("<h5>");
-    newLogWorkout.text("Workout type: " + log.Workout.name);
-    newLogWorkout.css({
+    var creationDate = $("<small>");
+    var workoutDate = $("<h2>");
+    var userName = $("<h6>");
+    creationDate.text("added on: " + formattedDate);
+    creationDate.css({
       float: "right",
-      color: "blue",
-      "margin-top":
-      "-10px"
+      "margin-top": "-10px"
     });
-    var newLogCardComment = $("<div>");
-    newLogCardComment.addClass("card-comment");
-    var newLogComment = $("<p>");
-    // newLogTitle.text(log.title + " ");
-    newLogComment.text(log.comment);
-    newLogDate.text(formattedDate);
-    // newLogTitle.append(newLogDate);
-    newLogCardHeading.append(deleteBtn);
-    newLogCardHeading.append(editBtn);
-    // newLogCardHeading.append(newLogTitle);
-    newLogCardHeading.append(newLogWorkout);
-    newLogCardComment.append(newLogComment);
-    newLogCard.append(newLogCardHeading);
-    newLogCard.append(newLogCardComment);
+    var LogCardBody = $("<div>");
+    LogCardBody.addClass("card-comment");
+    var LogBody = $("<p>");
+    userName.text(log.User.firstName + "'s workout on");
+    workoutDate.text(log.date + " ");
+    LogBody.text(log.comment);
+    userName.append(workoutDate);
+    LogCardHeader.append(deleteBtn);
+    LogCardHeader.append(editBtn);
+    LogCardHeader.append(creationDate);
+    LogCardHeader.append(userName);
+    LogCardBody.append(LogBody);
+    newLogCard.append(LogCardHeader);
+    newLogCard.append(LogCardBody);
     newLogCard.data("log", log);
     return newLogCard;
   }
@@ -120,7 +115,7 @@ $(document).ready(function() {
       .parent()
       .parent()
       .data("log");
-    window.location.href = "/cms?log_id=" + currentLog.id;
+    window.location.href = "/logger?log_id=" + currentLog.id;
   }
 
   // This function displays a message when there are no logs
@@ -128,14 +123,16 @@ $(document).ready(function() {
     var query = window.location.search;
     var partial = "";
     if (id) {
-      partial = " for Workout:" + id;
+      partial = " for User:" + id;
     }
     logContainer.empty();
     var messageH2 = $("<h2>");
-    messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No logs yet" + partial + ", navigate <a href='/cms" + query +
+    messageH2.css({
+      "text-align": "center",
+      "margin-top": "50px"
+    });
+    messageH2.html("No posts yet" + partial + ", navigate <a href='/logger" + query +
     "'>here</a> in order to get started.");
     logContainer.append(messageH2);
   }
-
 });
