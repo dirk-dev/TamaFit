@@ -1,28 +1,21 @@
 <div id="home">
 	<div class="container">
-		<div class="text-center">
-			<a href="/logout"><button class="btn btn-primary" id="submit" type="button">Logout
-				</button></a>
-			</span>
-			<span class="button-padding"></span>
-			<a href="/account"><button class="btn btn-primary" id="submit" type="button">View Account
-					Info
-				</button></a>
-		</div>
-		<br>
+
 		<div class="animated bounceInUp">
+			<div>
+				<div class="col text-center">
+					<a class="btn btn-light body-buttons" href="/members">See all Logs</a>
+					<span class="button-padding"></span>
+					<a class="btn btn-light body-buttons" href="/account">View/Edit Account</a>
+					<span class="button-padding"></span>
+					<a class="btn btn-light body-buttons" href="/logout">Logout</a>
+				</div>
+			</div>
+
 			<h1 class="h1-mobile-responsive">Log a workout for <span class="member-name"></span></h1>
 		</div>
 
 		<div class="container hidden">
-			<div class="row top-30">
-				<div class="col text-center">
-					<a class="btn btn-light body-buttons" href="/members">See all Logs</a>
-				</div>
-			</div>
-
-			<br>
-
 			<div class="row">
 				<div class="col-md-6 offset-md-3">
 					<form id="logger">
@@ -48,11 +41,12 @@
 					</form>
 				</div>
 			</div>
-
 		</div>
-	</div>
 
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="/js/logger.js"></script>
-	<script type="text/javascript" src="/js/members.js"></script>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/logger.js"></script>
+<script type="text/javascript" src="/js/members.js"></script>
