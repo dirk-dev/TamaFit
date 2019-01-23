@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // Getting references to our form and input
   var changeAvatarForm = $("form.changeAvatar");
   var selectAvatar = $("img.tamagotchi");
@@ -6,7 +6,7 @@ $(document).ready(function () {
   var imgUrl = "";
   var UserId;
 
-  $.get("/api/user_data").then(function (data) {
+  $.get("/api/user_data").then(function(data) {
     UserId = data.id;
     // currentAvatar.img(src, data.imgUrl);
     var img = $("<img id='avatar'>");
@@ -21,13 +21,13 @@ $(document).ready(function () {
       method: "PUT",
       url: "/api/avatar",
       data: avatar
-    }).then(function () {
+    }).then(function() {
       window.location.href = "/account";
     });
   }
 
   // on submit, send new imgUrl to update avatar
-  changeAvatarForm.on("submit", function (event) {
+  changeAvatarForm.on("submit", function(event) {
     event.preventDefault();
     var imgQuerySelector = document.querySelector(".selected").src;
     console.log(imgQuerySelector);
@@ -41,7 +41,7 @@ $(document).ready(function () {
     updateAvatar(newAvatar);
   });
 
-  selectAvatar.on("click", function (event) {
+  selectAvatar.on("click", function(event) {
     event.preventDefault();
     var state = $(this).attr("data-clicked");
     console.log("state: " + state);

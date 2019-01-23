@@ -90,4 +90,3 @@ $(document).ready(function() {
     }
   });
 });
-//  use imgurl in post route to assign to user profile

@@ -15,7 +15,7 @@ $(document).ready(function() {
   function handleUserFormSubmit(event) {
     event.preventDefault();
     // Don't do anything if the name fields hasn't been filled out
-    if (!nameInput.val().trim().trim()) {
+    if (!nameInput.val().trim()) {
       return;
     }
     // Calling the upsertUser function and passing in the value of the name input
@@ -39,9 +39,15 @@ $(document).ready(function() {
     } else {
       newTr.append("<td>0</td>");
     }
-    newTr.append("<td><a href='/members?user_id=" + userData.id + "'>Go to Logs</a></td>");
-    newTr.append("<td><a href='/logger?user_id=" + userData.id + "'>Create a Log</a></td>");
-    newTr.append("<td><a style='cursor:pointer;color:red' class='delete-user'>Delete User</a></td>");
+    newTr.append(
+      "<td><a href='/members?user_id=" + userData.id + "'>Go to Logs</a></td>"
+    );
+    newTr.append(
+      "<td><a href='/logger?user_id=" + userData.id + "'>Create a Log</a></td>"
+    );
+    newTr.append(
+      "<td><a style='cursor:pointer;color:red' class='delete-user'>Delete User</a></td>"
+    );
     return newTr;
   }
 
