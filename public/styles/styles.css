@@ -1,15 +1,15 @@
 .container {
   max-width: 700px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .list-group-item {
   line-height: 2.5;
 }
 
-body,
 html {
   height: 100%;
-  /* width: 100%; */
 }
 
 body {
@@ -89,13 +89,13 @@ h5 {
   height: 30%;
 }
 
-label {
-  font-family: "ubuntu", sans-serif;
+.member-avatar {
+  width: 50%;
+  margin: 0 auto;
 }
 
-.button-padding {
-  padding: 10px 5px;
-  float: right;
+label {
+  font-family: "ubuntu", sans-serif;
 }
 
 #title-container {
@@ -162,9 +162,9 @@ label {
     height: auto;
   }
 
-  .member-img {
-    width: auto;
-    /* height: auto; */
+  .member-avatar {
+    width: 50%;
+    margin: 0 auto;
   }
 
   .member-name,
@@ -179,7 +179,6 @@ label {
   }
 
   .d-block {
-    /* margin: 0 auto; */
     width: auto;
     height: 200px;
   }
@@ -187,5 +186,11 @@ label {
   h3 {
     margin: 0 15px;
     font-size: 20px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
   }
 }
