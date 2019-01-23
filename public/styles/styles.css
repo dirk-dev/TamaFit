@@ -43,6 +43,14 @@ h1 {
   font-size: 50px;
 }
 
+h3 {
+  margin: 0 20px;
+}
+
+h5 {
+  color: black;
+}
+
 .enlarged-link {
   font-size: 30px;
 }
@@ -95,17 +103,23 @@ label {
 }
 
 .dropdown-toggle,
-.body-buttons {
+.body-buttons,
+.btn-info {
   background-color: rgb(9, 9, 160);
   border-color: white;
   color: white;
 }
 
 .dropdown-toggle:hover,
-.body-buttons:hover {
+.body-buttons:hover,
+.btn-info:hover {
   background-color: rgb(170, 16, 62);
   border-color: white;
   color: white;
+}
+
+.btn-danger {
+  background-color: darkred;
 }
 
 .tamagatchi {
@@ -119,6 +133,11 @@ label {
 .selected {
   -webkit-filter: drop-shadow(6px 6px 3px rgb(235, 228, 228));
   filter: drop-shadow(6px 6px 3px rgb(235, 228, 228));
+}
+
+.card {
+  background-color: rgb(209, 206, 202, 0.3);
+  padding: 8px;
 }
 
 @media only screen and (max-width: 768px) {
