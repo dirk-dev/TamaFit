@@ -7,7 +7,8 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     if (req.user) {
-      res.redirect("/members");
+      // res.redirect("/members");
+      res.redirect("/log");
     } else {
       res.render("index");
     }
@@ -28,7 +29,8 @@ module.exports = function(app) {
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      // res.redirect("/members");
+      res.redirect("/log");
     } else {
       res.render("login_page");
     }
@@ -37,7 +39,8 @@ module.exports = function(app) {
   app.get("/signup", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      // res.redirect("/members");
+      res.redirect("/log");
     } else {
       res.render("signup");
     }
