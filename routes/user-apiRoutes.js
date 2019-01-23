@@ -17,21 +17,34 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
-    console.log("user-apiroutes")
-    console.log(req.body);
-    console.log(req.body.imgUrl)
+    // console.log("user-apiroutes")
+    // console.log(req.body);
+    // console.log(req.body.imgUrl)
     db.User.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password,
       imgUrl: req.body.imgUrl
-    }).then(function () {
-      res.redirect(307, "/api/login");
-    }).catch(function (err) {
-      console.log(err);
-      res.json(err);
-      // res.status(422).json(err.errors[0].message);
+    })
+      .then(function () {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function (err) {
+        console.log(err);
+        res.json(err);
+        // res.status(422).json(err.errors[0].message);
+      });
+  });
+
+  // when user changes avatar
+  app.put("/api/avatar", function (req, res) {
+    db.User.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function (dbUser) {
+      res.json(dbUser);
     });
   });
 
@@ -65,12 +78,12 @@ module.exports = function (app) {
     // In this case, just db.Log
     db.User.findAll({
       include: [db.Log]
-    }).then(function(dbUser) {
+    }).then(function (dbUser) {
       res.json(dbUser);
     });
   });
 
-  app.get("/api/users/:id", function(req, res) {
+  app.get("/api/users/:id", function (req, res) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Log
@@ -79,23 +92,23 @@ module.exports = function (app) {
         id: req.params.id
       },
       include: [db.Log]
-    }).then(function(dbUser) {
+    }).then(function (dbUser) {
       res.json(dbUser);
     });
   });
 
-  app.post("/api/users", function(req, res) {
-    db.User.create(req.body).then(function(dbUser) {
+  app.post("/api/users", function (req, res) {
+    db.User.create(req.body).then(function (dbUser) {
       res.json(dbUser);
     });
   });
 
-  app.delete("/api/users/:id", function(req, res) {
+  app.delete("/api/users/:id", function (req, res) {
     db.User.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbUser) {
+    }).then(function (dbUser) {
       res.json(dbUser);
     });
   });

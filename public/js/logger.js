@@ -1,10 +1,8 @@
-$(document).ready(function() {
-
-  $.get("/api/user_data").then(function(data) {
+$(document).ready(function () {
+  $.get("/api/user_data").then(function (data) {
     $(".member-name").text(data.email);
     $(".member-name").text(data.email);
   });
-
 
   var today = moment().format("YYYY-MM-DD");
   document.getElementById("datePicker").value = today;
@@ -17,7 +15,7 @@ $(document).ready(function() {
   var loggedInId = $("#loggedIn");
   // console.log("loginID" + loggedInId);
   // console.log("val:" + loggedInId.val());
-  
+
   // Adding an event listener for when the form is submitted
   $(loggerForm).on("submit", handleFormSubmit);
   // Gets the part of the url that comes after the "?" (which we have if we're updating a log)
@@ -45,17 +43,17 @@ $(document).ready(function() {
   function handleFormSubmit(event) {
     event.preventDefault();
     // Wont submit the log if we are missing a comment, date, or userId
-    if (!dateInput.val().trim() || !commentInput.val().trim() || !loggedInId.val()) {
+    if (
+      !dateInput.val().trim() ||
+      !commentInput.val().trim() ||
+      !loggedInId.val()
+    ) {
       return;
     }
     // Constructing a newLog object to hand to the database
     var newLog = {
-      date: dateInput
-        .val()
-        .trim(),
-      comment: commentInput
-        .val()
-        .trim(),
+      date: dateInput.val().trim(),
+      comment: commentInput.val().trim(),
       userId: loggedInId.val()
     };
 
@@ -64,15 +62,14 @@ $(document).ready(function() {
     if (updating) {
       newLog.id = logId;
       updateLog(newLog);
-    }
-    else {
+    } else {
       submitLog(newLog);
     }
   }
 
   // Submits a new log and brings user to members page upon completion
   function submitLog(log) {
-    $.post("/api/logs", log, function() {
+    $.post("/api/logs", log, function () {
       window.location.href = "/members";
     });
   }
@@ -81,16 +78,16 @@ $(document).ready(function() {
   function getLogData(id, type) {
     var queryUrl;
     switch (type) {
-    case "log":
-      queryUrl = "/api/logs/" + id;
-      break;
-    case "user":
-      queryUrl = "/api/users/" + id;
-      break;
-    default:
-      return;
+      case "log":
+        queryUrl = "/api/logs/" + id;
+        break;
+      case "user":
+        queryUrl = "/api/users/" + id;
+        break;
+      default:
+        return;
     }
-    $.get(queryUrl, function(data) {
+    $.get(queryUrl, function (data) {
       if (data) {
         console.log(data.userId || data.id);
         // If this log exists, prefill our logger forms with its data
@@ -141,9 +138,8 @@ $(document).ready(function() {
       method: "PUT",
       url: "/api/logs",
       data: log
-    })
-      .then(function() {
-        window.location.href = "/members";
-      });
+    }).then(function () {
+      window.location.href = "/members";
+    });
   }
 });

@@ -11,7 +11,6 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app) {
-
   // GET route for getting all of the logs
   app.get("/api/logs", function(req, res) {
     var query = {};
@@ -64,13 +63,11 @@ module.exports = function(app) {
 
   // PUT route for updating logs
   app.put("/api/logs", function(req, res) {
-    db.Log.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbLog) {
+    db.Log.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbLog) {
       res.json(dbLog);
     });
   });

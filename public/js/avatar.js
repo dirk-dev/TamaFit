@@ -1,85 +1,101 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Getting references to our form and input
-  var signUpForm = $("form.signup");
-  var firstNameInput = $("input#first-name-input");
-  var lastNameInput = $("input#last-name-input");
-  var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
+  var changeAvatarForm = $("form.changeAvatar");
   var selectAvatar = $("img.tamagotchi");
   var imgUrl = "";
+  var UserId;
 
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
+  $.get("/api/user_data").then(function (data) {
+    UserId = data.id;
+  });
+
+  // function to update avatar
+  function updateAvatar(avatar) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/avatar",
+      data: avatar
+    }).then(function () {
+      window.location.href = "/account";
+    });
   }
 
-  // Does a post to the signup route. If successful, we are redirected to the members page
-  // Otherwise we log any errors
-  function signUpUser(firstName, lastName, email, password, imgUrl) {
-    // console.log("signUpUser-imgUrl: " + imgUrl)
-    $.post("/api/signup", {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      password: password,
-      imgUrl: imgUrl
-    })
-      .then(function(data) {
-        window.location.replace(data);
-        // If there's an error, handle it by throwing up a bootstrap alert
-      })
-      .catch(handleLoginErr);
-  }
 
-  // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function (event) {
+  // on submit, send new imgUrl to update avatar
+  changeAvatarForm.on("submit", function (event) {
     event.preventDefault();
     var imgQuerySelector = document.querySelector(".selected").src;
-    // console.log(imgQuerySelector);
-    var userData = {
-      firstName: firstNameInput.val().trim(),
-      lastName: lastNameInput.val().trim(),
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim(),
+    console.log(imgQuerySelector);
+
+    var newAvatar = {
       imgUrl: imgQuerySelector
     };
 
-    if (
-      !userData.firstName ||
-      !userData.lastName ||
-      !userData.email ||
-      !userData.password ||
-      !userData.imgUrl
-    ) {
-      return;
-    }
-    // If we have an email and password, run the signUpUser function
-    signUpUser(
-      userData.firstName,
-      userData.lastName,
-      userData.email,
-      userData.password,
-      userData.imgUrl
-    );
-    firstNameInput.val("");
-    lastNameInput.val("");
-    emailInput.val("");
-    passwordInput.val("");
+    newAvatar.id = UserId;
+    updateAvatar(newAvatar);
   });
 
-  selectAvatar.on("click", function(event) {
+  // changeAvatarForm.on("submit", function (event) {
+  //   event.preventDefault();
+  //   var imgQuerySelector = document.querySelector(".selected").src;
+
+  //   User.find({
+  //     where: {
+  //       UserId: UserId
+  //     }
+  //   }).on("success", function (user) {
+  //     // Check if record exists in db
+  //     if (user) {
+  //       user
+  //         .update({
+  //           imgUrl: imgQuerySelector
+  //         })
+  //         .success(function () {});
+  //     }
+  //   });
+  // });
+
+  // User.update({
+  //   title: 'foooo',
+  //   description: 'baaaaaar'
+  // }, {
+  //   fields: ['title']
+  // }).then(() => {
+  //   // title will now be 'foooo' but description is the very same as before
+  // })
+
+  // router.put(‘/book/: bookId’, function (req, res, next) {
+  //   Book.update({
+  //       title: req.body.title
+  //     }, {
+  //       returning: true,
+  //       where: {
+  //         id: req.params.bookId
+  //       }
+  //     })
+  //     .then(function ([rowsUpdate, [updatedBook]]) {
+  //       res.json(updatedBook)
+  //     })
+  //     .catch(next)
+  // })
+
+  selectAvatar.on("click", function (event) {
     event.preventDefault();
     var state = $(this).attr("data-clicked");
     console.log("state: " + state);
+
     if (state === "false") {
       imgUrl = $(this).attr("src");
       console.log("image" + imgUrl);
+
       var allImgTagsFalse = $(this)
         .parent()
         .children()
         .attr("data-clicked", "false");
+
       allImgTagsFalse.removeClass("selected");
       console.log("this" + this);
+
       // grab all of the images in span and set data-clicked attr to false
       // then grab the one clicked and set to true
       $(this).attr("data-clicked", "true");

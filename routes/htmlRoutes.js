@@ -42,7 +42,8 @@ module.exports = function(app) {
         firstName: req.user.firstName,
         lastName: req.user.lastName,
         email: req.user.email,
-        createdAt: req.user.createdAt.substring(0, 10)
+        createdAt: req.user.createdAt.substring(0, 10),
+        avatar: req.user.imgUrl
       });
     } else {
       res.render("index");
