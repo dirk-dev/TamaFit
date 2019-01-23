@@ -8,10 +8,8 @@
   line-height: 2.5;
 }
 
-body,
 html {
   height: 100%;
-  /* width: 100%; */
 }
 
 body {
@@ -95,11 +93,6 @@ label {
   font-family: "ubuntu", sans-serif;
 }
 
-/* .button-padding {
-  padding: 10px 10px;
-  float: right;
-} */
-
 #title-container {
   text-align: center;
 }
@@ -164,9 +157,9 @@ label {
     height: auto;
   }
 
-  .member-img,
   .member-avatar {
     width: 50%;
+    margin: 0 auto;
   }
 
   .member-name,
@@ -181,7 +174,6 @@ label {
   }
 
   .d-block {
-    /* margin: 0 auto; */
     width: auto;
     height: 200px;
   }
@@ -194,6 +186,6 @@ label {
   img {
     max-width: 100%;
     height: auto;
-    width: auto\9; /* ie8 */
+    width: auto\9;
   }
 }
