@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
   /* global moment */
 
   // logContainer holds all of our logs
-  var logContainer = $(".blog-container");
+  var logContainer = $(".log-container");
   var logCategorySelect = $("#category");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handleLogDelete);
@@ -10,7 +10,7 @@ $(document).ready(function() {
   // Variable to hold our logs
   var logs;
 
-  // The code below handles the case where we want to get blog logs for a specific user
+  // The code below handles the case where we want to get workout logs for a specific user
   // Looks for a query param in the url for user_id
   var url = window.location.search;
   var userId;
@@ -29,7 +29,7 @@ $(document).ready(function() {
     if (userId) {
       userId = "/?user_id=" + userId;
     }
-    $.get("/api/logs" + userId, function(data) {
+    $.get("/api/logs" + userId, function (data) {
       console.log("logs", data);
       logs = data;
       if (!logs || !logs.length) {
@@ -45,7 +45,7 @@ $(document).ready(function() {
     $.ajax({
       method: "DELETE",
       url: "/api/logs/" + id
-    }).then(function() {
+    }).then(function () {
       getLogs(logCategorySelect.val());
     });
   }
@@ -128,10 +128,17 @@ $(document).ready(function() {
     }
     logContainer.empty();
     var messageH2 = $("<h2>");
-    messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No logs yet" + partial + ", navigate <a href='/logger" + query +
-    "'>here</a> in order to get started.");
+    messageH2.css({
+      "text-align": "center",
+      "margin-top": "50px"
+    });
+    messageH2.html(
+      "No logs yet" +
+        partial +
+        ", navigate <a href='/logger" +
+        query +
+        "'>here</a> in order to get started."
+    );
     logContainer.append(messageH2);
   }
-
 });

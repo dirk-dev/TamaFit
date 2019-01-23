@@ -12,19 +12,31 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
   // GET route for getting all of the logs
+  // app.get("/api/logs", function(req, res) {
+  //   var query = {};
+  //   if (req.query.user_id) {
+  //     query.UserId = req.query.user_id;
+  //   }
+  //   // Here we add an "include" property to our options in our findAll query
+  //   // We set the value to an array of the models we want to include in a left outer join
+  //   // In this case, just db.User
+  //   db.Log.findAll({
+  //     where: query,
+  //     include: [db.User]
+  //   }).then(function(dbLog) {
+  //     res.json(dbLog);
+  //   });
+  // });
+
+  // test to get all logs for specific user
   app.get("/api/logs", function(req, res) {
-    var query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    }
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.User
     db.Log.findAll({
-      where: query,
+      where: {
+        UserId: req.user.id
+      },
       include: [db.User]
-    }).then(function(dbLog) {
-      res.json(dbLog);
+    }).then(function(dbLogs) {
+      res.json(dbLogs);
     });
   });
 

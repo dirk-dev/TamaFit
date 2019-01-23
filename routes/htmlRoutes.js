@@ -33,7 +33,19 @@ module.exports = function(app) {
   // if user is logged in, allow access to members page
   app.get("/members", isAuthenticated, function(req, res) {
     res.render("members");
+    // if (req.user) {
+    //   res.redirect("/members/?user_id=2");
+    // }
   });
+
+  // app.get("/members/:id", isAuthenticated, function(req, res) {
+  //   res.render("members");
+  //   db.Log.findAll({ where: { UserId: req.params.id } }).then(function(dbLog) {
+  //     res.render("members", {
+  //       example: dbLog
+  //     });
+  //   });
+  // });
 
   app.get("/account", function(req, res) {
     if (req.user) {
