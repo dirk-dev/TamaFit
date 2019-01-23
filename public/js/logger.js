@@ -1,20 +1,19 @@
 $(document).ready(function () {
   $.get("/api/user_data").then(function (data) {
-    $(".member-name").text(data.email);
-    $(".member-name").text(data.email);
+    $(".member-name").text(data.firstName);
+    $(".member-email").text(data.email);
   });
 
+  // set default date choice to today
   var today = moment().format("YYYY-MM-DD");
   document.getElementById("datePicker").value = today;
 
   // Getting jQuery references to the log date, comment, form, and user select
+  var loggerForm = $("#logger");
   var dateInput = $(".date");
   var commentInput = $("#comment");
-  var loggerForm = $("#logger");
-  // var userSelect = $("#user");
-  var loggedInId = $("#loggedIn");
-  // console.log("loginID" + loggedInId);
-  // console.log("val:" + loggedInId.val());
+  var loggedInId = $("#user");
+  // var loggedInId = $("#loggedIn");
 
   // Adding an event listener for when the form is submitted
   $(loggerForm).on("submit", handleFormSubmit);
@@ -54,7 +53,7 @@ $(document).ready(function () {
     var newLog = {
       date: dateInput.val().trim(),
       comment: commentInput.val().trim(),
-      userId: loggedInId.val()
+      UserId: loggedInId.val()
     };
 
     // If we're updating a log run updateLog to update a log
@@ -78,14 +77,14 @@ $(document).ready(function () {
   function getLogData(id, type) {
     var queryUrl;
     switch (type) {
-      case "log":
-        queryUrl = "/api/logs/" + id;
-        break;
-      case "user":
-        queryUrl = "/api/users/" + id;
-        break;
-      default:
-        return;
+    case "log":
+      queryUrl = "/api/logs/" + id;
+      break;
+    case "user":
+      queryUrl = "/api/users/" + id;
+      break;
+    default:
+      return;
     }
     $.get(queryUrl, function (data) {
       if (data) {
@@ -118,17 +117,18 @@ $(document).ready(function () {
       rowsToAdd.push(createUserRow(data[i]));
     }
     loggedInId.empty();
-    console.log(rowsToAdd);
-    console.log(loggedInId);
+    console.log("rowsToAdd:" + rowsToAdd);
+    console.log("loggedInId before:" + loggedInId);
     loggedInId.append(rowsToAdd);
     loggedInId.val(userId);
+    console.log("userId: " + userId);
   }
 
   // Creates the user options in the dropdown
   function createUserRow(user) {
     var listOption = $("<option>");
     listOption.attr("value", user.id);
-    listOption.text(user.name);
+    listOption.text(user.firstName);
     return listOption;
   }
 

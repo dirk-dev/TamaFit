@@ -23,7 +23,6 @@ $(document).ready(function() {
     getLogs();
   }
 
-
   // This function grabs logs from the database and updates the view
   function getLogs(user) {
     userId = user || "";
@@ -35,8 +34,7 @@ $(document).ready(function() {
       logs = data;
       if (!logs || !logs.length) {
         displayEmpty(user);
-      }
-      else {
+      } else {
         initializeRows();
       }
     });
@@ -47,10 +45,9 @@ $(document).ready(function() {
     $.ajax({
       method: "DELETE",
       url: "/api/logs/" + id
-    })
-      .then(function() {
-        getLogs(logCategorySelect.val());
-      });
+    }).then(function() {
+      getLogs(logCategorySelect.val());
+    });
   }
 
   // InitializeRows handles appending all of our constructed log HTML inside logContainer
@@ -69,38 +66,37 @@ $(document).ready(function() {
     formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     var newLogCard = $("<div>");
     newLogCard.addClass("card");
-    var newLogCardHeading = $("<div>");
-    newLogCardHeading.addClass("card-header");
+    var LogCardHeader = $("<div>");
+    LogCardHeader.addClass("card-header");
     var deleteBtn = $("<button>");
     deleteBtn.text("x");
     deleteBtn.addClass("delete btn btn-danger");
     var editBtn = $("<button>");
     editBtn.text("EDIT");
     editBtn.addClass("edit btn btn-info");
-    var newLogDate = $("<h2>");
-    var newLogDate = $("<small>");
-    var newLogUser = $("<h5>");
-    newLogUser.text("User: " + log.User.name);
-    newLogUser.css({
+    var workoutDate = $("<h2>");
+    var createdDate = $("<small>");
+    var userName = $("<h5>");
+    userName.text("User: " + log.User.firstName);
+    userName.css({
       float: "right",
       color: "blue",
-      "margin-top":
-      "-10px"
+      "margin-top": "-10px"
     });
-    var newLogCardComment = $("<div>");
-    newLogCardComment.addClass("card-comment");
-    var newLogComment = $("<p>");
-    newLogDate.text(log.date + " ");
-    newLogComment.text(log.comment);
-    newLogDate.text(formattedDate);
-    newLogDate.append(newLogDate);
-    newLogCardHeading.append(deleteBtn);
-    newLogCardHeading.append(editBtn);
-    newLogCardHeading.append(newLogDate);
-    newLogCardHeading.append(newLogUser);
-    newLogCardComment.append(newLogComment);
-    newLogCard.append(newLogCardHeading);
-    newLogCard.append(newLogCardComment);
+    var LogCardBody = $("<div>");
+    LogCardBody.addClass("card-comment");
+    var LogBody = $("<p>");
+    workoutDate.text(log.date + " ");
+    LogBody.text(log.comment);
+    createdDate.text(formattedDate);
+    workoutDate.append(createdDate);
+    LogCardHeader.append(deleteBtn);
+    LogCardHeader.append(editBtn);
+    LogCardHeader.append(workoutDate);
+    LogCardHeader.append(userName);
+    LogCardBody.append(LogBody);
+    newLogCard.append(LogCardHeader);
+    newLogCard.append(LogCardBody);
     newLogCard.data("log", log);
     return newLogCard;
   }
@@ -124,11 +120,11 @@ $(document).ready(function() {
   }
 
   // This function displays a message when there are no logs
-  function displayEmpty(id) {
+  function displayEmpty(firstName) {
     var query = window.location.search;
     var partial = "";
-    if (id) {
-      partial = " for User:" + id;
+    if (firstName) {
+      partial = " for User:" + firstName;
     }
     logContainer.empty();
     var messageH2 = $("<h2>");

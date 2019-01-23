@@ -2,11 +2,17 @@ $(document).ready(function () {
   // Getting references to our form and input
   var changeAvatarForm = $("form.changeAvatar");
   var selectAvatar = $("img.tamagotchi");
+  var currentAvatar = $(".current-avatar");
   var imgUrl = "";
   var UserId;
 
   $.get("/api/user_data").then(function (data) {
     UserId = data.id;
+    // currentAvatar.img(src, data.imgUrl);
+    var img = $("<img id='avatar'>");
+    img.attr("src", data.imgUrl);
+    img.attr("width", "50");
+    img.appendTo(currentAvatar);
   });
 
   // function to update avatar
@@ -20,12 +26,12 @@ $(document).ready(function () {
     });
   }
 
-
   // on submit, send new imgUrl to update avatar
   changeAvatarForm.on("submit", function (event) {
     event.preventDefault();
     var imgQuerySelector = document.querySelector(".selected").src;
     console.log(imgQuerySelector);
+    // currentAvatar = imgQuerySelector;
 
     var newAvatar = {
       imgUrl: imgQuerySelector
@@ -34,50 +40,6 @@ $(document).ready(function () {
     newAvatar.id = UserId;
     updateAvatar(newAvatar);
   });
-
-  // changeAvatarForm.on("submit", function (event) {
-  //   event.preventDefault();
-  //   var imgQuerySelector = document.querySelector(".selected").src;
-
-  //   User.find({
-  //     where: {
-  //       UserId: UserId
-  //     }
-  //   }).on("success", function (user) {
-  //     // Check if record exists in db
-  //     if (user) {
-  //       user
-  //         .update({
-  //           imgUrl: imgQuerySelector
-  //         })
-  //         .success(function () {});
-  //     }
-  //   });
-  // });
-
-  // User.update({
-  //   title: 'foooo',
-  //   description: 'baaaaaar'
-  // }, {
-  //   fields: ['title']
-  // }).then(() => {
-  //   // title will now be 'foooo' but description is the very same as before
-  // })
-
-  // router.put(‘/book/: bookId’, function (req, res, next) {
-  //   Book.update({
-  //       title: req.body.title
-  //     }, {
-  //       returning: true,
-  //       where: {
-  //         id: req.params.bookId
-  //       }
-  //     })
-  //     .then(function ([rowsUpdate, [updatedBook]]) {
-  //       res.json(updatedBook)
-  //     })
-  //     .catch(next)
-  // })
 
   selectAvatar.on("click", function (event) {
     event.preventDefault();
@@ -106,4 +68,3 @@ $(document).ready(function () {
     }
   });
 });
-//  use imgurl in post route to assign to user profile

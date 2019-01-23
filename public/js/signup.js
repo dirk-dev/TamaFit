@@ -2,6 +2,10 @@ $(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
   var selectAvatar = $("img.tamagotchi");
+  var firstNameInput = $("input#first-name-input");
+  var lastNameInput = $("input#last-name-input");
+  var emailInput = $("input#email-input");
+  var passwordInput = $("input#password-input");
   var imgUrl = "";
 
   function handleLoginErr(err) {

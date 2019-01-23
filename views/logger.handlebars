@@ -28,7 +28,7 @@
 	</div>
 
 	<div class="animated bounceInUp">
-		<h1 class="h1-mobile-responsive">Log a workout, <span class="member-name"></span></h1>
+		<h1 class="h1-mobile-responsive">Log a workout for <span class="member-name"></span></h1>
 		<br>
 	</div>
 
@@ -37,33 +37,18 @@
 			<div class="col text-center">
 				<a class="btn btn-light body-buttons" href="/members">Go to Logs</a>
 			</div>
-			{{!-- <div class="col text-center">
-				<a class="btn btn-light body-buttons" href="/users">Manage Users</a>
-			</div> --}}
 		</div>
 		<br>
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<form id="logger">
 
-					<div class="form-group row">
-						<label for="example-date-input" class="col-2 col-form-label">Workout Date</label>
-						<div class="col-10">
-							<input class="date form-control" type="date" value="2011-08-19" id="datePicker">
-						</div>
+					<div class="form-group">
+						<label for="example-date-input">Workout Date:</label>
+						<input class="date" type="date" value="2011-08-19" id="datePicker">
+						{{!-- <input type="date" id="date" name="trip-start" value="2019-01-24" min="2018-01-01" max="2025-12-31"> --}}
 					</div>
 
-					{{!-- <div class="form-group"> --}}
-						{{!-- <label for="title">Title:</label>
-						<input placeholder="Post Title" type="text" class="form-control" id="title">
-						<br /> --}}
-						{{!-- <form class="create-form text-center" action="" method="POST"> --}}
-							{{!-- <label for="date">Workout Date:</label>
-							<input type="date" class="date" id="datePicker" min="2018-01-01" max="2055-12-31"> --}}
-							{{!-- <input type="date" id="date" name="trip-start" value="2019-01-24" min="2018-01-01" max="2025-12-31">
-						</form> --}}
-						{{!-- <br>
-					</div> --}}
 					<div class="form-group">
 						<label for="comment">Comment:</label>
 						<textarea placeholder="Log Workout" class="form-control" rows="10" id="comment"></textarea>
@@ -75,10 +60,9 @@
 						</select>
 					</div>
 
-					<br>User id: <div class="member-id"></div>
-					<br>id: <span id="loggedIn">{{id}}</span> test
-					<br>name {{name}}
-					<br>email {{email}}
+					<br>id js: <span class="member-id"></span>
+					<br>id hb: {{id}}
+					<br>id hb w class: <span class="login-id">{{id}}</span>
 					<br>
 					<button type="submit" class="btn btn-success submit">Submit</button>
 
