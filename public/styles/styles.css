@@ -18,7 +18,8 @@ body {
   background: linear-gradient(to bottom, #6e529d 0%, #d97b93 100%) fixed;
 }
 
-.home {
+#home,
+#index-home {
   clear: both;
 }
 
@@ -83,8 +84,8 @@ h5 {
 
 .d-block {
   margin: 0 auto;
-  width: 25%;
-  height: auto;
+  width: auto;
+  height: 30%;
 }
 
 label {
@@ -112,7 +113,8 @@ label {
 
 .dropdown-toggle,
 .body-buttons,
-.btn-info {
+.btn-info,
+.btn {
   background-color: rgb(9, 9, 160);
   border-color: white;
   color: white;
@@ -120,7 +122,8 @@ label {
 
 .dropdown-toggle:hover,
 .body-buttons:hover,
-.btn-info:hover {
+.btn-info:hover,
+.btn:hover {
   background-color: rgb(170, 16, 62);
   border-color: white;
   color: white;
@@ -175,12 +178,13 @@ label {
   }
 
   .d-block {
-    margin: 0 auto;
-    width: 50%;
-    height: auto;
+    /* margin: 0 auto; */
+    width: auto;
+    height: 200px;
   }
 
   h3 {
     margin: 0 15px;
+    font-size: 20px;
   }
 }
