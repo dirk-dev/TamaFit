@@ -77,11 +77,9 @@ $(document).ready(function () {
     var creationDate = $("<small>");
     var workoutDate = $("<h2>");
     var userName = $("<h6>");
-    // creationDate.text("User: " + log.User.firstName);
     creationDate.text("added on: " + formattedDate);
     creationDate.css({
       float: "right",
-      // color: "blue",
       "margin-top": "-10px"
     });
     var LogCardBody = $("<div>");

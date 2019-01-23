@@ -1,41 +1,39 @@
 <div id="home">
   <div class="container">
     <div class="row">
-      <div class="col-8 offset-2">
-
-        {{!-- header --}}
-        <br>
-        <div class="animated bounceInDown">
-          <a href="/" class="no-underline">
-            <span class="tama">Tama</span><span class="fit">Fit</span>
-          </a>
-        </div>
-        <hr class="type_6 animated bounceInDown hide-rule">
-        {{!-- end header --}}
+      <div class="col-10 offset-1">
 
         {{!-- form start --}}
         <div class="animated bounceInUp">
           <h2>Sign Up Form</h2>
           <form class="signup">
 
-            <div class="form-group">
-              <label for="example-text-input">First Name</label>
-              <input type="text" class="form-control" id="first-name-input" placeholder="First Name">
+            <div class="form-group row">
+              <label for="example-text-input" class="col-sm-3 col-form-label">First Name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="first-name-input" placeholder="First Name">
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="example-text-input">Last Name</label>
-              <input type="text" class="form-control" id="last-name-input" placeholder="Last Name">
+            <div class="form-group row">
+              <label for="example-text-input" class="col-sm-3 col-form-label">Last Name</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="last-name-input" placeholder="Last Name">
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="email-input" placeholder="Email">
+            <div class="form-group row">
+              <label for="exampleInputEmail1" class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <input type="email" class="form-control" id="email-input" placeholder="Email">
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="password-input" placeholder="Password">
+            <div class="form-group row">
+              <label for="exampleInputPassword1" class="col-sm-3 col-form-label">Password</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" id="password-input" placeholder="Password">
+              </div>
             </div>
 
             <div style="display: none" id="alert" class="alert alert-danger" role="alert">

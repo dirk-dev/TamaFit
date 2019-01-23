@@ -1,3 +1,7 @@
+.container {
+  max-width: 700px;
+}
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -153,6 +157,11 @@ label {
     width: 75%;
     height: auto;
   }
+
+  /* .member-avatar {
+    width: 70%;
+    height: auto;
+  } */
 
   .member-name,
   .h1-mobile-responsive {
