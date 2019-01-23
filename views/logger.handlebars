@@ -1,17 +1,17 @@
 <div id="home">
 	<div class="container">
-
-		<a href="/logout"><button class="btn btn-primary" id="submit" type="button">Logout
-			</button></a>
-		</span>
-		<span class="button-padding"></span>
-		<a href="/account"><button class="btn btn-primary" id="submit" type="button">View Account
-				Info
-			</button></a>
-
+		<div class="text-center">
+			<a href="/logout"><button class="btn btn-primary" id="submit" type="button">Logout
+				</button></a>
+			</span>
+			<span class="button-padding"></span>
+			<a href="/account"><button class="btn btn-primary" id="submit" type="button">View Account
+					Info
+				</button></a>
+		</div>
+		<br>
 		<div class="animated bounceInUp">
 			<h1 class="h1-mobile-responsive">Log a workout for <span class="member-name"></span></h1>
-			<br>
 		</div>
 
 		<div class="container hidden">
@@ -30,12 +30,13 @@
 						<div class="form-group">
 							<label for="example-date-input">Workout Date:</label>
 							<input class="date" type="date" value="2011-08-19" id="datePicker">
-							{{!-- <input type="date" id="date" name="trip-start" value="2019-01-24" min="2018-01-01" max="2025-12-31"> --}}
+							{{!-- <input type="date" id="date" name="trip-start" value="2019-01-24" min="2018-01-01" max="2025-12-31">
+							--}}
 						</div>
 
 						<div class="form-group">
 							<label for="comment">Comment:</label>
-							<textarea placeholder="Log Workout" class="form-control" rows="10" id="comment"></textarea>
+							<textarea placeholder="Log Workout" class="form-control" rows="7" id="comment"></textarea>
 						</div>
 
 						<div class="form-group">
@@ -43,8 +44,7 @@
 							<select class="custom-select" id="user">
 							</select>
 						</div>
-						
-						<br>
+
 						<button type="submit" class="btn btn-success submit">Submit</button>
 
 					</form>

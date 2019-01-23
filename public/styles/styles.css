@@ -9,6 +9,7 @@
 body,
 html {
   height: 100%;
+  /* width: 100%; */
 }
 
 body {
@@ -30,7 +31,7 @@ body {
 .type_6 {
   border: 0;
   width: 90%;
-  height: 55px;
+  height: 25px;
   background-image: url(../images/type_6.png);
   background-repeat: no-repeat;
 }
@@ -83,7 +84,7 @@ h5 {
 }
 
 .d-block {
-  margin: 0 auto;
+  margin: 10px auto;
   width: auto;
   height: 30%;
 }
@@ -148,7 +149,7 @@ label {
 
 .card {
   background-color: rgb(209, 206, 202, 0.3);
-  padding: 8px;
+  padding: 3px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -161,14 +162,14 @@ label {
     height: auto;
   }
 
-  /* .member-avatar {
-    width: 70%;
-    height: auto;
-  } */
+  .member-img {
+    width: auto;
+    /* height: auto; */
+  }
 
   .member-name,
   .h1-mobile-responsive {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .tamagotchi {
