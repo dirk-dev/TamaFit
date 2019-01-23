@@ -9,6 +9,7 @@
 body,
 html {
   height: 100%;
+  /* width: 100%; */
 }
 
 body {
@@ -18,7 +19,8 @@ body {
   background: linear-gradient(to bottom, #6e529d 0%, #d97b93 100%) fixed;
 }
 
-.home {
+#home,
+#index-home {
   clear: both;
 }
 
@@ -29,7 +31,7 @@ body {
 .type_6 {
   border: 0;
   width: 90%;
-  height: 55px;
+  height: 25px;
   background-image: url(../images/type_6.png);
   background-repeat: no-repeat;
 }
@@ -82,9 +84,9 @@ h5 {
 }
 
 .d-block {
-  margin: 0 auto;
-  width: 25%;
-  height: auto;
+  margin: 10px auto;
+  width: auto;
+  height: 30%;
 }
 
 label {
@@ -112,7 +114,8 @@ label {
 
 .dropdown-toggle,
 .body-buttons,
-.btn-info {
+.btn-info,
+.btn {
   background-color: rgb(9, 9, 160);
   border-color: white;
   color: white;
@@ -120,7 +123,8 @@ label {
 
 .dropdown-toggle:hover,
 .body-buttons:hover,
-.btn-info:hover {
+.btn-info:hover,
+.btn:hover {
   background-color: rgb(170, 16, 62);
   border-color: white;
   color: white;
@@ -145,7 +149,7 @@ label {
 
 .card {
   background-color: rgb(209, 206, 202, 0.3);
-  padding: 8px;
+  padding: 3px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -158,14 +162,14 @@ label {
     height: auto;
   }
 
-  /* .member-avatar {
-    width: 70%;
-    height: auto;
-  } */
+  .member-img {
+    width: auto;
+    /* height: auto; */
+  }
 
   .member-name,
   .h1-mobile-responsive {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .tamagotchi {
@@ -175,12 +179,13 @@ label {
   }
 
   .d-block {
-    margin: 0 auto;
-    width: 50%;
-    height: auto;
+    /* margin: 0 auto; */
+    width: auto;
+    height: 200px;
   }
 
   h3 {
     margin: 0 15px;
+    font-size: 20px;
   }
 }
