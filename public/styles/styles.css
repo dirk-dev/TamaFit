@@ -1,5 +1,7 @@
 .container {
   max-width: 700px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .list-group-item {
@@ -93,10 +95,10 @@ label {
   font-family: "ubuntu", sans-serif;
 }
 
-.button-padding {
-  padding: 10px 5px;
+/* .button-padding {
+  padding: 10px 10px;
   float: right;
-}
+} */
 
 #title-container {
   text-align: center;
@@ -162,9 +164,9 @@ label {
     height: auto;
   }
 
-  .member-img {
-    width: auto;
-    /* height: auto; */
+  .member-img,
+  .member-avatar {
+    width: 50%;
   }
 
   .member-name,
@@ -187,5 +189,11 @@ label {
   h3 {
     margin: 0 15px;
     font-size: 20px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
   }
 }
