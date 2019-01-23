@@ -43,7 +43,7 @@ $(document).ready(function() {
       newTr.append("<td>0</td>");
     }
     newTr.append("<td><a href='/log?workout_id=" + workoutData.id + "'>Go to Logs</a></td>");
-    newTr.append("<td><a href='/cms?workout_id=" + workoutData.id + "'>Create a Log</a></td>");
+    newTr.append("<td><a href='/logger?workout_id=" + workoutData.id + "'>Create a Log</a></td>");
     newTr.append("<td><a style='cursor:pointer;color:red' class='delete-workout'>Delete Workout</a></td>");
     return newTr;
   }

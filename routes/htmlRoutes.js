@@ -4,23 +4,9 @@ var db = require("../models");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
-  // Load index page
   app.get("/", function(req, res) {
     if (req.user) {
-      // res.redirect("/members");
-      res.redirect("/log");
-    } else {
-      res.render("index");
-    }
-  });
-
-  app.get("/account", function(req, res) {
-    if (req.user) {
-      res.render("account", {
-        email: req.user.email,
-        id: req.user.id,
-        createdAt: req.user.createdAt.substring(0, 10)
-      });
+      res.redirect("/members");
     } else {
       res.render("index");
     }
@@ -29,8 +15,7 @@ module.exports = function(app) {
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      // res.redirect("/members");
-      res.redirect("/log");
+      res.redirect("/members");
     } else {
       res.render("login_page");
     }
@@ -39,8 +24,7 @@ module.exports = function(app) {
   app.get("/signup", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      // res.redirect("/members");
-      res.redirect("/log");
+      res.redirect("/members");
     } else {
       res.render("signup");
     }
@@ -51,17 +35,33 @@ module.exports = function(app) {
     res.render("members");
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  app.get("/account", function(req, res) {
+    if (req.user) {
+      res.render("account", {
+        id: req.user.id,
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+        email: req.user.email,
+        createdAt: req.user.createdAt.substring(0, 10)
       });
-    });
+    } else {
+      res.render("index");
+    }
+  });
+
+  // logger route loads logger
+  app.get("/logger", isAuthenticated, function(req, res) {
+    if (req.user) {
+      res.render("logger", {
+        email: req.user.email,
+        id: req.user.id
+      });
+    }
+  });
+
+  // users route loads user-manager
+  app.get("/users", isAuthenticated, function(req, res) {
+    res.render("user-manager");
   });
 
   // Render 404 page for any unmatched routes

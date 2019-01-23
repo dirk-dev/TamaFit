@@ -108,14 +108,14 @@ label {
   color: white;
 }
 
-.tamagatchi {
+.tamagotchi {
   height: 105px;
   width: auto;
   margin: 10px;
   filter: grayscale(90%);
 }
 
-.tamagatchi:hover,
+.tamagotchi:hover,
 .selected {
   -webkit-filter: drop-shadow(6px 6px 3px rgb(235, 228, 228));
   filter: drop-shadow(6px 6px 3px rgb(235, 228, 228));
@@ -136,7 +136,7 @@ label {
     font-size: 30px;
   }
 
-  .tamagatchi {
+  .tamagotchi {
     height: 85px;
     width: auto;
     margin: 5px;

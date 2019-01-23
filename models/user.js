@@ -5,6 +5,20 @@ var bcrypt = require("bcrypt-nodejs");
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 50]
+      }
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 50]
+      }
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -23,9 +37,9 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   User.associate = function(models) {
-    // Associating User with Workouts
-    // When a Workout is deleted, also delete any associated Logs
-    User.hasMany(models.Workout, {
+    // Associating User with Logs
+    // When a Log is deleted, also delete any associated Logs
+    User.hasMany(models.Log, {
       onDelete: "cascade"
     });
   };

@@ -1,6 +1,10 @@
 $(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
+  var firstNameInput = $("input#first-name-input");
+  var lastNameInput = $("input#last-name-input");
+  var emailInput = $("input#email-input");
+  var passwordInput = $("input#password-input");
   var selectAvatar = $("img.tamagotchi");
   var imgUrl = "";
 
@@ -28,7 +32,7 @@ $(document).ready(function() {
   }
 
   // When the signup button is clicked, we validate the email and password are not blank
-  signUpForm.on("submit", function(event) {
+  signUpForm.on("submit", function (event) {
     event.preventDefault();
     var imgQuerySelector = document.querySelector(".selected").src;
     // console.log(imgQuerySelector);

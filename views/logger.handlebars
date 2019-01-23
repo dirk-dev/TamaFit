@@ -4,7 +4,8 @@
 		<form class="form-inline">
 			<a href="/logout"><button class="btn btn-primary" id="submit" type="button">Logout
 				</button></a>
-			</span><span class="button-padding"></span>
+			</span>
+			<span class="button-padding"></span>
 			<a href="/account"><button class="btn btn-primary" id="submit" type="button">View Account
 					Info
 				</button></a>
@@ -34,30 +35,53 @@
 	<div class="container hidden">
 		<div class="row top-30">
 			<div class="col text-center">
-				<a class="btn btn-light body-buttons" href="/log">Go to Logs</a>
+				<a class="btn btn-light body-buttons" href="/members">Go to Logs</a>
 			</div>
-			<div class="col text-center">
-				<a class="btn btn-light body-buttons" href="/workouts">Manage Workouts</a>
-			</div>
+			{{!-- <div class="col text-center">
+				<a class="btn btn-light body-buttons" href="/users">Manage Users</a>
+			</div> --}}
 		</div>
 		<br>
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
-				<form id="cms">
-					<div class="form-group">
+				<form id="logger">
+
+					<div class="form-group row">
+						<label for="example-date-input" class="col-2 col-form-label">Workout Date</label>
+						<div class="col-10">
+							<input class="date form-control" type="date" value="2011-08-19" id="datePicker">
+						</div>
+					</div>
+
+					{{!-- <div class="form-group"> --}}
 						{{!-- <label for="title">Title:</label>
 						<input placeholder="Post Title" type="text" class="form-control" id="title">
 						<br /> --}}
+						{{!-- <form class="create-form text-center" action="" method="POST"> --}}
+							{{!-- <label for="date">Workout Date:</label>
+							<input type="date" class="date" id="datePicker" min="2018-01-01" max="2055-12-31"> --}}
+							{{!-- <input type="date" id="date" name="trip-start" value="2019-01-24" min="2018-01-01" max="2025-12-31">
+						</form> --}}
+						{{!-- <br>
+					</div> --}}
+					<div class="form-group">
 						<label for="comment">Comment:</label>
-						<textarea placeholder="Log Comment" class="form-control" rows="10" id="comment"></textarea>
-						<div class="form-group">
-							<label for="category">Select Workout:</label>
-							<select class="custom-select" id="workout">
-							</select>
-						</div>
-						<br />
-						<button type="submit" class="btn btn-success submit">Submit</button>
+						<textarea placeholder="Log Workout" class="form-control" rows="10" id="comment"></textarea>
 					</div>
+
+					<div class="form-group">
+						<label for="category">Select User:</label>
+						<select class="custom-select" id="user">
+						</select>
+					</div>
+
+					<br>User id: <div class="member-id"></div>
+					<br>id: <span id="loggedIn">{{id}}</span> test
+					<br>name {{name}}
+					<br>email {{email}}
+					<br>
+					<button type="submit" class="btn btn-success submit">Submit</button>
+
 				</form>
 			</div>
 		</div>
@@ -65,7 +89,6 @@
 
 </div>
 <script src="https://code.jquery.com/jquery.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="/js/cms.js"></script>
+<script type="text/javascript" src="/js/logger.js"></script>
 <script type="text/javascript" src="/js/members.js"></script>

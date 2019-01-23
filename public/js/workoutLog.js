@@ -10,31 +10,31 @@ $(document).ready(function() {
   // Variable to hold our logs
   var logs;
 
-  // The code below handles the case where we want to get blog logs for a specific workout
-  // Looks for a query param in the url for workout_id
+  // The code below handles the case where we want to get blog logs for a specific user
+  // Looks for a query param in the url for user_id
   var url = window.location.search;
-  var workoutId;
-  if (url.indexOf("?workout_id=") !== -1) {
-    workoutId = url.split("=")[1];
-    getlogs(workoutId);
+  var userId;
+  if (url.indexOf("?user_id=") !== -1) {
+    userId = url.split("=")[1];
+    getLogs(userId);
   }
-  // If there's no workoutId we just get all logs as usual
+  // If there's no userId we just get all logs as usual
   else {
-    getlogs();
+    getLogs();
   }
 
 
   // This function grabs logs from the database and updates the view
-  function getlogs(workout) {
-    workoutId = workout || "";
-    if (workoutId) {
-      workoutId = "/?workout_id=" + workoutId;
+  function getLogs(user) {
+    userId = user || "";
+    if (userId) {
+      userId = "/?user_id=" + userId;
     }
-    $.get("/api/logs" + workoutId, function(data) {
+    $.get("/api/logs" + userId, function(data) {
       console.log("logs", data);
       logs = data;
       if (!logs || !logs.length) {
-        displayEmpty(workout);
+        displayEmpty(user);
       }
       else {
         initializeRows();
@@ -49,7 +49,7 @@ $(document).ready(function() {
       url: "/api/logs/" + id
     })
       .then(function() {
-        getlogs(logCategorySelect.val());
+        getLogs(logCategorySelect.val());
       });
   }
 
@@ -77,11 +77,11 @@ $(document).ready(function() {
     var editBtn = $("<button>");
     editBtn.text("EDIT");
     editBtn.addClass("edit btn btn-info");
-    // var newLogTitle = $("<h2>");
+    var newLogDate = $("<h2>");
     var newLogDate = $("<small>");
-    var newLogWorkout = $("<h5>");
-    newLogWorkout.text("Workout type: " + log.Workout.name);
-    newLogWorkout.css({
+    var newLogUser = $("<h5>");
+    newLogUser.text("User: " + log.User.name);
+    newLogUser.css({
       float: "right",
       color: "blue",
       "margin-top":
@@ -90,14 +90,14 @@ $(document).ready(function() {
     var newLogCardComment = $("<div>");
     newLogCardComment.addClass("card-comment");
     var newLogComment = $("<p>");
-    // newLogTitle.text(log.title + " ");
+    newLogDate.text(log.date + " ");
     newLogComment.text(log.comment);
     newLogDate.text(formattedDate);
-    // newLogTitle.append(newLogDate);
+    newLogDate.append(newLogDate);
     newLogCardHeading.append(deleteBtn);
     newLogCardHeading.append(editBtn);
-    // newLogCardHeading.append(newLogTitle);
-    newLogCardHeading.append(newLogWorkout);
+    newLogCardHeading.append(newLogDate);
+    newLogCardHeading.append(newLogUser);
     newLogCardComment.append(newLogComment);
     newLogCard.append(newLogCardHeading);
     newLogCard.append(newLogCardComment);
@@ -120,7 +120,7 @@ $(document).ready(function() {
       .parent()
       .parent()
       .data("log");
-    window.location.href = "/cms?log_id=" + currentLog.id;
+    window.location.href = "/logger?log_id=" + currentLog.id;
   }
 
   // This function displays a message when there are no logs
@@ -128,12 +128,12 @@ $(document).ready(function() {
     var query = window.location.search;
     var partial = "";
     if (id) {
-      partial = " for Workout:" + id;
+      partial = " for User:" + id;
     }
     logContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No logs yet" + partial + ", navigate <a href='/cms" + query +
+    messageH2.html("No logs yet" + partial + ", navigate <a href='/logger" + query +
     "'>here</a> in order to get started.");
     logContainer.append(messageH2);
   }

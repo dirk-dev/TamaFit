@@ -15,15 +15,15 @@ module.exports = function(app) {
   // GET route for getting all of the logs
   app.get("/api/logs", function(req, res) {
     var query = {};
-    if (req.query.workout_id) {
-      query.WorkoutId = req.query.workout_id;
+    if (req.query.user_id) {
+      query.UserId = req.query.user_id;
     }
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Workout
+    // In this case, just db.User
     db.Log.findAll({
       where: query,
-      include: [db.Workout]
+      include: [db.User]
     }).then(function(dbLog) {
       res.json(dbLog);
     });
@@ -33,12 +33,12 @@ module.exports = function(app) {
   app.get("/api/logs/:id", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Workout
+    // In this case, just db.User
     db.Log.findOne({
       where: {
         id: req.params.id
       },
-      include: [db.Workout]
+      include: [db.User]
     }).then(function(dbLog) {
       res.json(dbLog);
     });
