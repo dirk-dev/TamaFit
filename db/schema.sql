@@ -1,3 +1,2 @@
 DROP DATABASE IF EXISTS TamaFit_db;
 CREATE DATABASE TamaFit_db;
-USE TamaFit_db;

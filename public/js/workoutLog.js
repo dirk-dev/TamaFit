@@ -129,7 +129,7 @@ $(document).ready(function () {
       "text-align": "center",
       "margin-top": "50px"
     });
-    messageH2.html("No posts yet" + partial + ", navigate <a href='/logger" + query +
+    messageH2.html("No posts yet" + partial + ", click <a href='/logger" + query +
     "'>here</a> in order to get started.");
     logContainer.append(messageH2);
   }

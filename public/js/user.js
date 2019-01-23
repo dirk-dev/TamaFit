@@ -20,16 +20,13 @@ $(document).ready(function() {
     }
     // Calling the upsertUser function and passing in the value of the name input
     upsertUser({
-      name: nameInput
-        .val()
-        .trim()
+      name: nameInput.val().trim()
     });
   }
 
   // A function for creating a user. Calls getUsers upon completion
   function upsertUser(userData) {
-    $.post("/api/users", userData)
-      .then(getUsers);
+    $.post("/api/users", userData).then(getUsers);
   }
 
   // Function for creating a new list row for users
@@ -62,13 +59,15 @@ $(document).ready(function() {
 
   // A function for rendering the list of users to the page
   function renderuserList(rows) {
-    userList.children().not(":last").remove();
+    userList
+      .children()
+      .not(":last")
+      .remove();
     userContainer.children(".alert").remove();
     if (rows.length) {
       console.log(rows);
       userList.prepend(rows);
-    }
-    else {
+    } else {
       renderEmpty();
     }
   }
@@ -83,12 +82,14 @@ $(document).ready(function() {
 
   // Function for handling what happens when the delete button is pressed
   function handleDeleteButtonPress() {
-    var listItemData = $(this).parent("td").parent("tr").data("user");
+    var listItemData = $(this)
+      .parent("td")
+      .parent("tr")
+      .data("user");
     var id = listItemData.id;
     $.ajax({
       method: "DELETE",
       url: "/api/users/" + id
-    })
-      .then(getUsers);
+    }).then(getUsers);
   }
 });

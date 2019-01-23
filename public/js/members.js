@@ -4,7 +4,6 @@ $(document).ready(function() {
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.firstName);
     $(".member-id").text(data.id);
-    // console.log(data)
     $(".member-img").html("<img src= ' " + data.imgUrl + "'>");
   });
 });

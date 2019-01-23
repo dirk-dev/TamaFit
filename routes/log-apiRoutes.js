@@ -37,7 +37,7 @@ module.exports = function (app) {
       include: [db.User],
       order: [
         // sort by most recent log on top
-        ['date', 'DESC']
+        ["date", "DESC"]
       ]
     }).then(function (dbLogs) {
       res.json(dbLogs);

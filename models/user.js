@@ -38,7 +38,7 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = function(models) {
     // Associating User with Logs
-    // When a Log is deleted, also delete any associated Logs
+    // When a User is deleted, also delete any associated Logs
     User.hasMany(models.Log, {
       onDelete: "cascade"
     });
