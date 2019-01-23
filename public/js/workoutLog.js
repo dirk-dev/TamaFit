@@ -1,6 +1,4 @@
 $(document).ready(function () {
-  /* global moment */
-
   // logContainer holds all of our logs
   var logContainer = $(".log-container");
   var logCategorySelect = $("#category");
