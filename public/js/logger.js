@@ -1,9 +1,4 @@
 $(document).ready(function () {
-  $.get("/api/user_data").then(function (data) {
-    $(".member-name").text(data.firstName);
-    $(".member-email").text(data.email);
-  });
-
   // set default date choice to today
   var today = moment().format("YYYY-MM-DD");
   document.getElementById("datePicker").value = today;
@@ -13,7 +8,13 @@ $(document).ready(function () {
   var dateInput = $(".date");
   var commentInput = $("#comment");
   var loggedInId = $("#user");
-  // var loggedInId = $("#loggedIn");
+  var memberId;
+
+  
+  $.get("/api/user_data").then(function (data) {
+    // $(".member-id").text(data.id);
+    memberId = data.id;
+  });
 
   // Adding an event listener for when the form is submitted
   $(loggerForm).on("submit", handleFormSubmit);
@@ -77,14 +78,14 @@ $(document).ready(function () {
   function getLogData(id, type) {
     var queryUrl;
     switch (type) {
-    case "log":
-      queryUrl = "/api/logs/" + id;
-      break;
-    case "user":
-      queryUrl = "/api/users/" + id;
-      break;
-    default:
-      return;
+      case "log":
+        queryUrl = "/api/logs/" + id;
+        break;
+      case "user":
+        queryUrl = "/api/users/" + id;
+        break;
+      default:
+        return;
     }
     $.get(queryUrl, function (data) {
       if (data) {
@@ -114,22 +115,25 @@ $(document).ready(function () {
     $(".hidden").removeClass("hidden");
     var rowsToAdd = [];
     for (var i = 0; i < data.length; i++) {
+      // update here to display only logged in user
       rowsToAdd.push(createUserRow(data[i]));
     }
     loggedInId.empty();
-    console.log("rowsToAdd:" + rowsToAdd);
-    console.log("loggedInId before:" + loggedInId);
     loggedInId.append(rowsToAdd);
     loggedInId.val(userId);
-    console.log("userId: " + userId);
   }
 
   // Creates the user options in the dropdown
   function createUserRow(user) {
-    var listOption = $("<option>");
-    listOption.attr("value", user.id);
-    listOption.text(user.firstName);
-    return listOption;
+    if (user.id === memberId) {
+      console.log("memID:" + memberId);
+      var listOption = $("<option>");
+      listOption.attr("value", user.id);
+      listOption.text(user.firstName);
+      return listOption;
+    } else {
+      return;
+    }
   }
 
   // Update a given log, bring user to the members page when done

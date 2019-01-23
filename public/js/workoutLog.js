@@ -63,7 +63,7 @@ $(document).ready(function () {
   // This function constructs a log's HTML
   function createNewRow(log) {
     var formattedDate = new Date(log.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+    formattedDate = moment(formattedDate).format("MMMM Do YYYY");
     var newLogCard = $("<div>");
     newLogCard.addClass("card");
     var LogCardHeader = $("<div>");
@@ -74,25 +74,26 @@ $(document).ready(function () {
     var editBtn = $("<button>");
     editBtn.text("EDIT");
     editBtn.addClass("edit btn btn-info");
+    var creationDate = $("<small>");
     var workoutDate = $("<h2>");
-    var createdDate = $("<small>");
-    var userName = $("<h5>");
-    userName.text("User: " + log.User.firstName);
-    userName.css({
+    var userName = $("<h6>");
+    // creationDate.text("User: " + log.User.firstName);
+    creationDate.text("added on: " + formattedDate);
+    creationDate.css({
       float: "right",
-      color: "blue",
+      // color: "blue",
       "margin-top": "-10px"
     });
     var LogCardBody = $("<div>");
     LogCardBody.addClass("card-comment");
     var LogBody = $("<p>");
+    userName.text(log.User.firstName + "'s workout on");
     workoutDate.text(log.date + " ");
     LogBody.text(log.comment);
-    createdDate.text(formattedDate);
-    workoutDate.append(createdDate);
+    userName.append(workoutDate);
     LogCardHeader.append(deleteBtn);
     LogCardHeader.append(editBtn);
-    LogCardHeader.append(workoutDate);
+    LogCardHeader.append(creationDate);
     LogCardHeader.append(userName);
     LogCardBody.append(LogBody);
     newLogCard.append(LogCardHeader);
@@ -120,11 +121,11 @@ $(document).ready(function () {
   }
 
   // This function displays a message when there are no logs
-  function displayEmpty(firstName) {
+  function displayEmpty(id) {
     var query = window.location.search;
     var partial = "";
-    if (firstName) {
-      partial = " for User:" + firstName;
+    if (id) {
+      partial = " for User:" + id;
     }
     logContainer.empty();
     var messageH2 = $("<h2>");
@@ -132,13 +133,8 @@ $(document).ready(function () {
       "text-align": "center",
       "margin-top": "50px"
     });
-    messageH2.html(
-      "No logs yet" +
-        partial +
-        ", navigate <a href='/logger" +
-        query +
-        "'>here</a> in order to get started."
-    );
+    messageH2.html("No posts yet" + partial + ", navigate <a href='/logger" + query +
+    "'>here</a> in order to get started.");
     logContainer.append(messageH2);
   }
 });
