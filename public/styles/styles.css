@@ -5,7 +5,6 @@
 body,
 html {
   height: 100%;
-  /* overflow: hidden; */
 }
 
 body {
@@ -38,25 +37,20 @@ a.no-underline:hover {
 
 h1 {
   text-align: center;
-  /* font-family: "ZCOOL KuaiLe", cursive; */
   font-family: "Ubuntu", sans-serif;
   font-size: 50px;
 }
 
-.enlarged-link {
-  font-size: 30px;
+h3 {
+  margin: 0 40px;
 }
 
-.fit {
-  font-weight: bold;
-  font-family: "Raleway", sans-serif;
-  font-size: 72px;
-  background: linear-gradient(to right, #4674dd 0%, #13a306 100%);
-  -clip: text;
-  -background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(3px 3px 6px #060a0d);
+h5 {
+  color: black;
+}
+
+.enlarged-link {
+  font-size: 30px;
 }
 
 .tama,
@@ -71,6 +65,24 @@ h1 {
   filter: drop-shadow(3px 3px 6px #060a0d);
 }
 
+.fit {
+  font-weight: bold;
+  font-family: "Raleway", sans-serif;
+  font-size: 72px;
+  background: linear-gradient(to right, #4674dd 0%, #13a306 100%);
+  -clip: text;
+  -background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(3px 3px 6px #060a0d);
+}
+
+.d-block {
+  margin: 0 auto;
+  width: 25%;
+  height: auto;
+}
+
 label {
   font-family: "ubuntu", sans-serif;
 }
@@ -80,7 +92,7 @@ label {
   float: right;
 }
 
-#avatar_container {
+#title-container {
   text-align: center;
 }
 
@@ -95,17 +107,23 @@ label {
 }
 
 .dropdown-toggle,
-.body-buttons {
+.body-buttons,
+.btn-info {
   background-color: rgb(9, 9, 160);
   border-color: white;
   color: white;
 }
 
 .dropdown-toggle:hover,
-.body-buttons:hover {
+.body-buttons:hover,
+.btn-info:hover {
   background-color: rgb(170, 16, 62);
   border-color: white;
   color: white;
+}
+
+.btn-danger {
+  background-color: darkred;
 }
 
 .tamagotchi {
@@ -119,6 +137,11 @@ label {
 .selected {
   -webkit-filter: drop-shadow(6px 6px 3px rgb(235, 228, 228));
   filter: drop-shadow(6px 6px 3px rgb(235, 228, 228));
+}
+
+.card {
+  background-color: rgb(209, 206, 202, 0.3);
+  padding: 8px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -140,5 +163,15 @@ label {
     height: 85px;
     width: auto;
     margin: 5px;
+  }
+
+  .d-block {
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+  }
+
+  h3 {
+    margin: 0 15px;
   }
 }
