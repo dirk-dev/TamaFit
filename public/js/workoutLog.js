@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // logContainer holds all of our logs
   var logContainer = $(".log-container");
   var logCategorySelect = $("#category");
@@ -27,7 +27,7 @@ $(document).ready(function () {
     if (userId) {
       userId = "/?user_id=" + userId;
     }
-    $.get("/api/logs" + userId, function (data) {
+    $.get("/api/logs" + userId, function(data) {
       console.log("logs", data);
       logs = data;
       if (!logs || !logs.length) {
@@ -43,7 +43,7 @@ $(document).ready(function () {
     $.ajax({
       method: "DELETE",
       url: "/api/logs/" + id
-    }).then(function () {
+    }).then(function() {
       getLogs(logCategorySelect.val());
     });
   }
@@ -129,8 +129,13 @@ $(document).ready(function () {
       "text-align": "center",
       "margin-top": "50px"
     });
-    messageH2.html("No posts yet" + partial + ", click <a href='/logger" + query +
-    "'>here</a> in order to get started.");
+    messageH2.html(
+      "No posts yet" +
+        partial +
+        ", click <a href='/logger" +
+        query +
+        "'>here</a> in order to get started."
+    );
     logContainer.append(messageH2);
   }
 });
