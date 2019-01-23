@@ -89,6 +89,11 @@ h5 {
   height: 30%;
 }
 
+.member-avatar {
+  width: 50%;
+  margin: 0 auto;
+}
+
 label {
   font-family: "ubuntu", sans-serif;
 }
