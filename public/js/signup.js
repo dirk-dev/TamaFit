@@ -9,9 +9,19 @@ $(document).ready(function() {
   var imgUrl = "";
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
+    // $("#alert .msg").text(err.responseJSON);
+    // $("#alert").fadeIn(500);
+    document.getElementById("error").innerHTML =
+      "<div class='alert alert-danger'role='alert'>Sorry. Please try again.</div>";
   }
+
+  // function isIdUnique() {
+  //   const isIdUnique = id =>
+  // db.User.findOne({ where: { id} })
+  //   .then(token => token !== null)
+  //   .then(isUnique => isUnique);
+
+  // }
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
@@ -25,6 +35,7 @@ $(document).ready(function() {
       imgUrl: imgUrl
     })
       .then(function(data) {
+        document.getElementById("error").innerHTML = "";
         window.location.replace(data);
         // If there's an error, handle it by throwing up a bootstrap alert
       })

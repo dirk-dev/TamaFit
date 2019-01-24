@@ -29,11 +29,16 @@ $(document).ready(function() {
       password: password
     })
       .then(function(data) {
+        document.getElementById("error").innerHTML = "";
+
         window.location.replace(data);
       })
       // If there's an error, log the error
       .catch(function(err) {
         console.log(err);
+
+        document.getElementById("error").innerHTML =
+          "<div class='alert alert-danger'role='alert'>Sorry. Please try again.</div>";
       });
   }
 });

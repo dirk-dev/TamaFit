@@ -216,3 +216,25 @@ label {
     width: auto\9;
   }
 }
+
+@media only screen and (max-width: 325px) {
+  .btn-info,
+  .delete {
+    width: 18%;
+    padding: 0;
+    display: inline;
+    margin: 0 2px;
+  }
+
+  .card-header {
+    padding: 0;
+  }
+
+  small {
+    font-size: 13px;
+  }
+
+  .body-buttons {
+    margin: 2px 0;
+  }
+}
