@@ -70,7 +70,7 @@ $(document).ready(function() {
     deleteBtn.text("x");
     deleteBtn.addClass("delete btn btn-danger");
     var editBtn = $("<button>");
-    editBtn.text("EDIT");
+    editBtn.text("Edit");
     editBtn.addClass("edit btn btn-info");
     var creationDate = $("<small>");
     var workoutDate = $("<h2>");
