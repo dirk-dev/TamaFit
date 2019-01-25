@@ -4,18 +4,7 @@ $(document).ready(function() {
   var selectAvatar = $("img.tamagotchi");
   var currentAvatar = $(".current-avatar");
   var imgUrl = "";
-  var UserId;
-
-  // get current Avatar
-  $.get("/api/user_data").then(function(data) {
-    UserId = data.id;
-    $.get("/api/users", function(data2) {
-      var img = $("<img id='avatar'>");
-      img.attr("src", data2[UserId - 1].imgUrl);
-      img.attr("width", "50");
-      img.appendTo(currentAvatar);
-    });
-  });
+  var userId;
 
   // function to update avatar
   function updateAvatar(avatar) {
@@ -24,7 +13,6 @@ $(document).ready(function() {
       url: "/api/avatar",
       data: avatar
     }).then(function() {
-      // getUserData();
       window.location.href = "/account";
     });
   }
@@ -33,21 +21,21 @@ $(document).ready(function() {
   changeAvatarForm.on("submit", function(event) {
     event.preventDefault();
     var imgQuerySelector = document.querySelector(".selected").src;
-    console.log(imgQuerySelector);
-    // currentAvatar = imgQuerySelector;
+    // console.log(imgQuerySelector);
+    currentAvatar = imgQuerySelector;
 
     var newAvatar = {
       imgUrl: imgQuerySelector
     };
 
-    newAvatar.id = UserId;
+    newAvatar.id = userId;
     updateAvatar(newAvatar);
   });
 
   selectAvatar.on("click", function(event) {
     event.preventDefault();
     var state = $(this).attr("data-clicked");
-    console.log("state: " + state);
+    // console.log("state: " + state);
 
     if (state === "false") {
       imgUrl = $(this).attr("src");
@@ -59,7 +47,7 @@ $(document).ready(function() {
         .attr("data-clicked", "false");
 
       allImgTagsFalse.removeClass("selected");
-      console.log("this" + this);
+      // console.log("this" + this);
 
       // grab all of the images in span and set data-clicked attr to false
       // then grab the one clicked and set to true
@@ -69,5 +57,21 @@ $(document).ready(function() {
       $(this).attr("data-clicked", "false");
       $(this).removeClass("selected");
     }
+  });
+
+  // get current avatar
+  $.get("/api/user_data").then(function(data) {
+    userId = data.id;
+
+    console.log("userid " + userId);
+    var path = "/api/users/" + userId;
+    console.log("path" + path);
+
+    $.get(path, function(data2) {
+      var img = $("<img id='avatar'>");
+      img.attr("src", data2.imgUrl);
+      img.attr("width", "50");
+      img.appendTo(currentAvatar);
+    });
   });
 });

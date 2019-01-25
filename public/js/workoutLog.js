@@ -28,7 +28,7 @@ $(document).ready(function() {
       userId = "/?user_id=" + userId;
     }
     $.get("/api/logs" + userId, function(data) {
-      console.log("logs", data);
+      // console.log("logs", data);
       logs = data;
       if (!logs || !logs.length) {
         displayEmpty(user);

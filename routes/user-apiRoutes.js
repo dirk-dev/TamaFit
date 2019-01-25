@@ -34,17 +34,6 @@ module.exports = function(app) {
       });
   });
 
-  // when user changes avatar
-  app.put("/api/avatar", function(req, res) {
-    db.User.update(req.body, {
-      where: {
-        id: req.body.id
-      }
-    }).then(function(dbUser) {
-      res.json(dbUser);
-    });
-  });
-
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
@@ -96,6 +85,16 @@ module.exports = function(app) {
 
   app.post("/api/users", function(req, res) {
     db.User.create(req.body).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+  app.put("/api/avatar", function(req, res) {
+    db.User.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbUser) {
       res.json(dbUser);
     });
   });

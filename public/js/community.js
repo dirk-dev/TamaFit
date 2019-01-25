@@ -44,7 +44,7 @@ $(document).ready(function() {
       .remove();
     userContainer.children(".alert").remove();
     if (rows.length) {
-      console.log(rows);
+      // console.log(rows);
       userList.prepend(rows);
     } else {
       renderEmpty();

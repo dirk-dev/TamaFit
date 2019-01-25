@@ -222,6 +222,7 @@ label {
 }
 
 @media only screen and (max-width: 325px) {
+
   .btn-info,
   .delete {
     width: 18%;
