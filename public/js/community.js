@@ -19,6 +19,7 @@ $(document).ready(function() {
     } else {
       newTr.append("<td>0</td>");
     }
+    newTr.append("<td> <img src='" + userData.imgUrl + "' width='50'> </td>");
     newTr.append("<td>" + userData.createdAt.substring(0, 10) + "</td>");
     return newTr;
   }

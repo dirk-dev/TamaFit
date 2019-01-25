@@ -6,13 +6,15 @@ $(document).ready(function() {
   var imgUrl = "";
   var UserId;
 
+  // get current Avatar
   $.get("/api/user_data").then(function(data) {
     UserId = data.id;
-    // currentAvatar.img(src, data.imgUrl);
-    var img = $("<img id='avatar'>");
-    img.attr("src", data.imgUrl);
-    img.attr("width", "50");
-    img.appendTo(currentAvatar);
+    $.get("/api/users", function(data2) {
+      var img = $("<img id='avatar'>");
+      img.attr("src", data2[UserId - 1].imgUrl);
+      img.attr("width", "50");
+      img.appendTo(currentAvatar);
+    });
   });
 
   // function to update avatar
@@ -22,6 +24,7 @@ $(document).ready(function() {
       url: "/api/avatar",
       data: avatar
     }).then(function() {
+      // getUserData();
       window.location.href = "/account";
     });
   }
