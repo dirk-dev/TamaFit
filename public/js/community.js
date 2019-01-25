@@ -11,15 +11,15 @@ $(document).ready(function() {
   function createUserRow(userData) {
     var newTr = $("<tr>");
     newTr.data("user", userData);
-    newTr.append(
-      "<td>" + userData.firstName + " " + userData.lastName + "</td>"
-    );
     if (userData.Logs) {
       newTr.append("<td> " + userData.Logs.length + "</td>");
     } else {
       newTr.append("<td>0</td>");
     }
     newTr.append("<td> <img src='" + userData.imgUrl + "' width='50'> </td>");
+    newTr.append(
+      "<td>" + userData.firstName + " " + userData.lastName + "</td>"
+    );
     newTr.append("<td>" + userData.createdAt.substring(0, 10) + "</td>");
     return newTr;
   }
