@@ -15,7 +15,6 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Log.associate = function(models) {
-    // A Log can't be created without a User due to the foreign key constraint
     Log.belongsTo(models.User, {
       foreignKey: {
         allowNull: false

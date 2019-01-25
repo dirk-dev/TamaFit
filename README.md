@@ -1,10 +1,15 @@
 # TamaFit
 
-TamaFit is a full stack web application that will track a users workout history and display an avatar that is a direct visual representation of how much hard work (or lack thereof) the user is doing. The user will create an account and begin to add data about the type of workout they completed and the date they completed it on. The app will use the data to display how the workouts are affecting the user by displaying a happy avatar or an unhappy avatar based on there workout history.
+Current state:
+TamaFit is a full stack web application that will track a user's workout history and display an avatar of their choice. Users can view .
+
+Original concept:
+
+TamaFit is a full stack web application that will track a user's workout history and display an avatar that is a direct visual representation of how much hard work (or lack thereof) the user is doing. The user will create an account and begin to add data about the type of workout they completed and the date they completed it on. The app will use the data to display how the workouts are affecting the user by displaying a happy avatar or an unhappy avatar based on their workout history.
 
 ## Getting Started
 
-In order to get started just click here ['TamaFit'](https://github.com/dirk-kiesewetter/Project-2) to be taken to the website. Be prepared to make a new account and enjoy your new TamaFit experience. 
+In order to get started just click here ['TamaFit'](https://tamafitpls.herokuapp.com/) to be taken to the website. Be prepared to make a new account and enjoy your new TamaFit experience. 
 <!-- These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system. -->
 ## Built With
 
@@ -40,10 +45,10 @@ Simple session middleware for Express.
 
 ## Authors
 
-* **Dirk Kiesewetter** - *Initial work* - [dirk-kiesewetter](https://github.com/dirk-kiesewetter)
-* **Michael Perilli** - *Initial work* - [OSCOdin](https://github.com/OSCOdin)
-* **Pauline Senh** - *Initial work* - [plsenh](https://github.com/plsenh)
-* **Timothy Charette** - *Initial work* - [charettetimothy](https://github.com/charettetimothy)
+* **Dirk Kiesewetter** - [dirk-kiesewetter](https://github.com/dirk-kiesewetter)
+* **Michael Perilli** - [OSCOdin](https://github.com/OSCOdin)
+* **Pauline Senh** - [plsenh](https://github.com/plsenh)
+* **Timothy Charette** - [charettetimothy](https://github.com/charettetimothy)
 
 ## Acknowledgments
 
@@ -77,22 +82,3 @@ Pauline & Michael - back end
 ## phase 3
 
 - save user authentication via cookies...
-
-## Technologies used
-
-- [animate.css](https://github.com/daneden/animate.css/)
-- [bcrypt npm package for encrypting passwords](https://www.npmjs.com/package/bcrypt)
-- [Express npm package](https://www.npmjs.com/package/express)
-- [Google Fonts](https://fonts.google.com/)
-- [Handlebars templating engine](https://handlebarsjs.com/)
-- [Heroku for deployment](https://www.heroku.com/)
-- JavaScript
-- [jQuery](http://jquery.com/)
-- [MAMP local server](https://www.mamp.info/en/)
-- [MySQL Workbench](https://www.mysql.com/products/workbench/)
-- [mySQL npm module](https://www.npmjs.com/package/mysql)
-- [Node.js](https://nodejs.org)
-- [Passport npm package for user authentication](https://www.npmjs.com/package/passport)
-- [Sequelize npm package](https://www.npmjs.com/package/sequelize)
-- [Sequelize CLI package](https://www.npmjs.com/package/sequelize-cli)
-- [Twitter Bootstrap CSS framework](http://getbootstrap.com/) -->

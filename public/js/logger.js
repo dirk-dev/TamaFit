@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // set default date choice to today
   var today = moment().format("YYYY-MM-DD");
   document.getElementById("datePicker").value = today;
@@ -10,7 +10,7 @@ $(document).ready(function () {
   var loggedInId = $("#user");
   var memberId;
 
-  $.get("/api/user_data").then(function (data) {
+  $.get("/api/user_data").then(function(data) {
     // $(".member-id").text(data.id);
     memberId = data.id;
   });
@@ -68,7 +68,7 @@ $(document).ready(function () {
 
   // Submits a new log and brings user to members page upon completion
   function submitLog(log) {
-    $.post("/api/logs", log, function () {
+    $.post("/api/logs", log, function() {
       window.location.href = "/members";
     });
   }
@@ -86,7 +86,7 @@ $(document).ready(function () {
       default:
         return;
     }
-    $.get(queryUrl, function (data) {
+    $.get(queryUrl, function(data) {
       if (data) {
         console.log(data.userId || data.id);
         // If this log exists, prefill our logger forms with its data
@@ -105,8 +105,7 @@ $(document).ready(function () {
     $.get("/api/users", renderUserList);
   }
 
-  // Function to either render a list of users, or if there are none, direct the user to the page
-  // to create a user first
+  // Function to either render a list of users
   function renderUserList(data) {
     if (!data.length) {
       window.location.href = "/users";
@@ -129,6 +128,7 @@ $(document).ready(function () {
       var listOption = $("<option>");
       listOption.attr("value", user.id);
       listOption.text(user.firstName);
+      // listOption.attr("selected", "selected");
       return listOption;
     } else {
       return;
@@ -141,7 +141,7 @@ $(document).ready(function () {
       method: "PUT",
       url: "/api/logs",
       data: log
-    }).then(function () {
+    }).then(function() {
       window.location.href = "/members";
     });
   }

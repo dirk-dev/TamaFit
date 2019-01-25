@@ -2,24 +2,30 @@
 <div id="home">
 	<div class="container animated bounceInUp">
 
+		<div class="col text-center">
+			<a class="btn btn-light body-buttons" href="/logger">New Log</a>
+			<span class="button-padding"></span>
+			<a class="btn btn-light body-buttons" href="/members">Your Logs</a>
+			<span class="button-padding"></span>
+			<a class="btn btn-light body-buttons" href="/account">View/Edit Account</a>
+			<span class="button-padding"></span>
+			<a class="btn btn-dark body-buttons" href="/logout">Logout</a>
+		</div>
+
 		<div class="row">
 			<div class="col-md-8 offset-md-2">
 				<div class="user-container">
-					<h1 class="h1-mobile-responsive">User Manager</span></h1>
+					<h1 class="h1-mobile-responsive">Community Board</span></h1>
 					<table class="table table-striped">
 						<thead>
 							<tr>
 								<th>Name</th>
 								<th># of logs</th>
-								{{!-- <th>See workout logs</th>
-								<th>New Log</th> --}}
-								<th>Delete User</th>
+								<th>Date Joined</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr id="form-row">
-								{{!-- <form id="user-form">
-								</form> --}}
 							</tr>
 						</tbody>
 					</table>
@@ -31,5 +37,5 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.0/moment.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="/js/user-manager.js"></script>
+<script type="text/javascript" src="/js/community.js"></script>
 <script type="text/javascript" src="/js/members.js"></script>
