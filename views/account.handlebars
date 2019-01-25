@@ -4,9 +4,19 @@
 
 
       <div class="animated bounceInUp">
-        <h4 class="card-title text-center">Account Info</h4>
+
+        <div class="col text-center">
+          <a class="btn btn-light body-buttons" href="/logger">New Log</a>
+          <span class="button-padding"></span>
+          <a class="btn btn-light body-buttons" href="/members">See all Logs</a>
+          <span class="button-padding"></span>
+          <a class="btn btn-light body-buttons" href="/logout">Logout</a>
+        </div>
+
+
         <div class="card mt-4">
           <div class="card-body">
+            <h4 class="card-title text-center">Account Info</h4>
 
             <p>
               <strong>User ID</strong>: {{id}}
@@ -24,8 +34,8 @@
             <h4>Change Avatar</h4> (changes to avatar take effect upon next login)
             <form class="changeAvatar">
               <span class="avatar-imgs">
-                <img src="./images/anime_spacytchi.png" class="tamagotchi" id="1" data-clicked="false"><img
-                  src="./images/chamametchi_anime.png" class="tamagotchi" id="2" data-clicked="false">
+                <img src="./images/anime_spacytchi.png" class="tamagotchi" id="1" data-clicked="false"><img src="./images/chamametchi_anime.png"
+                  class="tamagotchi" id="2" data-clicked="false">
                 <img src="./images/gozarutchi_anime.png" class="tamagotchi" id="3" data-clicked="false">
                 <img src="./images/kikitchi_anime.png" class="tamagotchi" id="4" data-clicked="false">
                 <img src="./images/mametchi_anime_large.png" class="tamagotchi" id="5" data-clicked="false">
@@ -37,7 +47,7 @@
               </div>
             </form>
             <br>
-            <a href="/">← Back To Home</a>
+            <a href="/" class="text-link">← Back To Home</a>
           </div>
         </div>
       </div>
