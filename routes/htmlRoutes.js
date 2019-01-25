@@ -34,19 +34,15 @@ module.exports = function(app) {
     res.render("members");
   });
 
-  app.get("/account", function(req, res) {
-    if (req.user) {
-      res.render("account", {
-        id: req.user.id,
-        firstName: req.user.firstName,
-        lastName: req.user.lastName,
-        email: req.user.email,
-        createdAt: req.user.createdAt.substring(0, 10),
-        avatar: req.user.imgUrl
-      });
-    } else {
-      res.render("index");
-    }
+  app.get("/account", isAuthenticated, function(req, res) {
+    res.render("account", {
+      id: req.user.id,
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
+      email: req.user.email,
+      createdAt: req.user.createdAt.substring(0, 10),
+      avatar: req.user.imgUrl
+    });
   });
 
   // logger route loads logger
@@ -57,6 +53,11 @@ module.exports = function(app) {
         id: req.user.id
       });
     }
+  });
+
+  // community page
+  app.get("/community", isAuthenticated, function(req, res) {
+    res.render("community");
   });
 
   // loads user-manager for admin

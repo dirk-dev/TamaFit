@@ -39,12 +39,12 @@ $(document).ready(function() {
     } else {
       newTr.append("<td>0</td>");
     }
-    newTr.append(
-      "<td><a href='/members?user_id=" + userData.id + "'>Go to Logs</a></td>"
-    );
-    newTr.append(
-      "<td><a href='/logger?user_id=" + userData.id + "'>Create a Log</a></td>"
-    );
+    // newTr.append(
+    //   "<td><a href='/members?user_id=" + userData.id + "'>Go to Logs</a></td>"
+    // );
+    // newTr.append(
+    //   "<td><a href='/logger?user_id=" + userData.id + "'>Create a Log</a></td>"
+    // );
     newTr.append(
       "<td><a style='cursor:pointer;color:red' class='delete-user'>Delete User</a></td>"
     );
