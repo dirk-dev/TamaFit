@@ -134,6 +134,10 @@ label {
   border-color: white;
 }
 
+.center {
+  text-align: center;
+}
+
 .dropdown-toggle,
 .body-buttons,
 .btn-info,
