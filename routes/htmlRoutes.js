@@ -61,16 +61,16 @@ module.exports = function(app) {
   });
 
   // loads user-manager for admin
-  app.get("/users", isAuthenticated, function(req, res) {
-    res.render("user-manager");
-  });
+  // app.get("/users", isAuthenticated, function(req, res) {
+  //   res.render("user-manager");
+  // });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
   });
 
-  // app.get("/404", function(req, res) {
-  //   res.render("404");
+  // app.get("/test", function(req, res) {
+  //   res.render("test");
   // });
 };

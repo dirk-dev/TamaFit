@@ -1,27 +1,23 @@
 $(document).ready(function() {
-  // logContainer holds all of our logs
   var logContainer = $(".log-container");
   var logCategorySelect = $("#category");
-  // Click events for the edit and delete buttons
+
   $(document).on("click", "button.delete", handleLogDelete);
   $(document).on("click", "button.edit", handleLogEdit);
-  // Variable to hold our logs
+
   var logs;
 
-  // The code below handles the case where we want to get workout logs for a specific user
-  // Looks for a query param in the url for user_id
+  // find logs for a specific user
   var url = window.location.search;
   var userId;
   if (url.indexOf("?user_id=") !== -1) {
     userId = url.split("=")[1];
     getLogs(userId);
-  }
-  // If there's no userId we just get all logs as usual
-  else {
+  } else {
     getLogs();
   }
 
-  // This function grabs logs from the database and updates the view
+  // get logs from database
   function getLogs(user) {
     userId = user || "";
     if (userId) {
@@ -38,7 +34,7 @@ $(document).ready(function() {
     });
   }
 
-  // This function does an API call to delete logs
+  // API call to delete logs
   function deleteLog(id) {
     $.ajax({
       method: "DELETE",
@@ -48,7 +44,7 @@ $(document).ready(function() {
     });
   }
 
-  // InitializeRows handles appending all of our constructed log HTML inside logContainer
+  // add log to total log display
   function initializeRows() {
     logContainer.empty();
     var logsToAdd = [];
@@ -58,7 +54,7 @@ $(document).ready(function() {
     logContainer.append(logsToAdd);
   }
 
-  // This function constructs a log's HTML
+  // display a log
   function createNewRow(log) {
     var formattedDate = new Date(log.createdAt);
     formattedDate = moment(formattedDate).format("MMMM Do YYYY");
@@ -98,7 +94,7 @@ $(document).ready(function() {
     return newLogCard;
   }
 
-  // This function figures out which log we want to delete and then calls deleteLog
+  // delete a log
   function handleLogDelete() {
     var currentLog = $(this)
       .parent()
@@ -107,7 +103,7 @@ $(document).ready(function() {
     deleteLog(currentLog.id);
   }
 
-  // This function figures out which log we want to edit and takes it to the appropriate url
+  // update a log
   function handleLogEdit() {
     var currentLog = $(this)
       .parent()
@@ -116,7 +112,7 @@ $(document).ready(function() {
     window.location.href = "/logger?log_id=" + currentLog.id;
   }
 
-  // This function displays a message when there are no logs
+  // no logs yet
   function displayEmpty(id) {
     var query = window.location.search;
     var partial = "";

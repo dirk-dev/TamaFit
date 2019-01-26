@@ -1,6 +1,5 @@
 $(document).ready(function() {
   // Getting references to the name input and user container, as well as the table body
-  // var nameInput = $("#user-name");
   var userList = $("tbody");
   var userContainer = $(".user-container");
 
@@ -32,7 +31,6 @@ $(document).ready(function() {
         rowsToAdd.push(createUserRow(data[i]));
       }
       renderuserList(rowsToAdd);
-      // nameInput.val("");
     });
   }
 
