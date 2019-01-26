@@ -7,21 +7,22 @@ $(document).ready(function() {
   var loggerForm = $("#logger");
   var dateInput = $(".date");
   var commentInput = $("#comment");
-  var loggedInId = $("#user");
   var memberId;
 
-  $.get("/api/user_data").then(function(data) {
-    // $(".member-id").text(data.id);
-    memberId = data.id;
-  });
+  function getUserId() {
+    $.get("/api/user_data").then(function(data) {
+      memberId = data.id;
+    });
+  }
+  getUserId();
 
   // Adding an event listener for when the form is submitted
   $(loggerForm).on("submit", handleFormSubmit);
+
   // Gets the part of the url that comes after the "?" (which we have if we're updating a log)
   var url = window.location.search;
   var logId;
-  var userId;
-  // Sets a flag for whether or not we're updating a log to be false initially
+  // var userId;
   var updating = false;
 
   // If we have this section in our url, we pull out the log id from the url
@@ -31,29 +32,22 @@ $(document).ready(function() {
     getLogData(logId, "log");
   }
   // Otherwise if we have an user_id in our url, preset the user select box to be our User
-  else if (url.indexOf("?user_id=") !== -1) {
-    userId = url.split("=")[1];
-  }
-
-  // Getting the users, and their logs
-  getUsers();
+  // else if (url.indexOf("?user_id=") !== -1) {
+  //   userId = url.split("=")[1];
+  // }
 
   // A function for handling what happens when the form to create a new log is submitted
   function handleFormSubmit(event) {
     event.preventDefault();
-    // Wont submit the log if we are missing a comment, date, or userId
-    if (
-      !dateInput.val().trim() ||
-      !commentInput.val().trim() ||
-      !loggedInId.val()
-    ) {
+    // Wont submit the log if we are missing a comment or date
+    if (!dateInput.val().trim() || !commentInput.val().trim()) {
       return;
     }
     // Constructing a newLog object to hand to the database
     var newLog = {
       date: dateInput.val().trim(),
       comment: commentInput.val().trim(),
-      UserId: loggedInId.val()
+      UserId: memberId
     };
 
     // If we're updating a log run updateLog to update a log
@@ -77,62 +71,27 @@ $(document).ready(function() {
   function getLogData(id, type) {
     var queryUrl;
     switch (type) {
-      case "log":
-        queryUrl = "/api/logs/" + id;
-        break;
-      case "user":
-        queryUrl = "/api/users/" + id;
-        break;
-      default:
-        return;
+    case "log":
+      queryUrl = "/api/logs/" + id;
+      break;
+    case "user":
+      queryUrl = "/api/users/" + id;
+      break;
+    default:
+      return;
     }
     $.get(queryUrl, function(data) {
       if (data) {
-        console.log(data.userId || data.id);
+        console.log(data.UserId || data.id);
         // If this log exists, prefill our logger forms with its data
         dateInput.val(data.date);
         commentInput.val(data.comment);
-        userId = data.userId || data.id;
+        // userId = data.UserId || data.id;
         // If we have a log with this id, set a flag for us to know to update the log
         // when we hit submit
         updating = true;
       }
     });
-  }
-
-  // A function to get users and then render our list of users
-  function getUsers() {
-    $.get("/api/users", renderUserList);
-  }
-
-  // Function to either render a list of users
-  function renderUserList(data) {
-    if (!data.length) {
-      window.location.href = "/users";
-    }
-    $(".hidden").removeClass("hidden");
-    var rowsToAdd = [];
-    for (var i = 0; i < data.length; i++) {
-      // update here to display only logged in user
-      rowsToAdd.push(createUserRow(data[i]));
-    }
-    loggedInId.empty();
-    loggedInId.append(rowsToAdd);
-    loggedInId.val(userId);
-  }
-
-  // Creates the user options in the dropdown
-  function createUserRow(user) {
-    if (user.id === memberId) {
-      console.log("memID:" + memberId);
-      var listOption = $("<option>");
-      listOption.attr("value", user.id);
-      listOption.text(user.firstName);
-      // listOption.attr("selected", "selected");
-      return listOption;
-    } else {
-      return;
-    }
   }
 
   // Update a given log, bring user to the members page when done

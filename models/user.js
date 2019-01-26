@@ -23,12 +23,16 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       unique: true,
       validate: {
-        isEmail: true
+        isEmail: true,
+        len: [6, 320]
       }
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [4, 26]
+      }
     },
     imgUrl: {
       type: DataTypes.STRING

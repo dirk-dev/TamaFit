@@ -8,41 +8,44 @@
 					<span class="button-padding"></span>
 					<a class="btn btn-light body-buttons" href="/account">View/Edit Account</a>
 					<span class="button-padding"></span>
+					<a class="btn btn-light body-buttons" href="/community">Community</a>
+					<span class="button-padding"></span>
 					<a class="btn btn-light body-buttons" href="/logout">Logout</a>
 				</div>
 			</div>
 
 			<h1 class="h1-mobile-responsive">Log a workout for <span class="member-name"></span></h1>
-		</div>
 
-		<div class="container hidden">
-			<div class="row">
-				<div class="col-md-6 offset-md-3">
-					<form id="logger">
 
-						<div class="form-group">
-							<label for="example-date-input">Workout Date:</label>
-							<input class="date" type="date" value="2011-08-19" id="datePicker">
-						</div>
+			<div class="container hidden">
+				<div class="row">
+					<div class="col-md-6 offset-md-3">
+						<form id="logger">
 
-						<div class="form-group">
-							<label for="comment">Comment:</label>
-							<textarea placeholder="Log Workout" class="form-control" rows="7" id="comment"></textarea>
-						</div>
+							<div class="form-group">
+								<label for="example-date-input">Workout Date:</label>
+								<input class="date" type="date" value="2011-08-19" id="datePicker">
+							</div>
 
-						<div class="form-group">
-							<label for="category">Select User:</label>
-							<select class="custom-select" id="user">
-							</select>
-						</div>
+							<div class="form-group">
+								<label for="comment">Notes:</label>
+								<textarea placeholder="Log Workout" class="form-control" rows="7" id="comment"></textarea>
+							</div>
 
-						<button type="submit" class="btn btn-success submit">Submit</button>
+							{{!-- <div class="form-group">
+								<label for="category">Select User:</label>
+								<select class="custom-select" id="user">
+								</select>
+							</div> --}}
 
-					</form>
+							<button type="submit" class="btn btn-success submit">Submit</button>
+
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
 
+		</div>
 	</div>
 </div>
 
