@@ -130,7 +130,7 @@ $(document).ready(function() {
         partial +
         ", click <a href='/logger" +
         query +
-        "'>here</a> in order to get started."
+        "' class='text-link'>here</a> in order to get started."
     );
     logContainer.append(messageH2);
   }
