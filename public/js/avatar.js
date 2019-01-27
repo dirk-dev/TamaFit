@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // Getting references to our form and input
   var changeAvatarForm = $("form.changeAvatar");
   var selectAvatar = $("img.tamagotchi");
   var currentAvatar = $(".current-avatar");
@@ -20,8 +19,8 @@ $(document).ready(function() {
   // on submit, send new imgUrl to update avatar
   changeAvatarForm.on("submit", function(event) {
     event.preventDefault();
+
     var imgQuerySelector = document.querySelector(".selected").src;
-    // console.log(imgQuerySelector);
     currentAvatar = imgQuerySelector;
 
     var newAvatar = {
@@ -32,6 +31,7 @@ $(document).ready(function() {
     updateAvatar(newAvatar);
   });
 
+  // avatar selector
   selectAvatar.on("click", function(event) {
     event.preventDefault();
     var state = $(this).attr("data-clicked");
@@ -47,10 +47,7 @@ $(document).ready(function() {
         .attr("data-clicked", "false");
 
       allImgTagsFalse.removeClass("selected");
-      // console.log("this" + this);
 
-      // grab all of the images in span and set data-clicked attr to false
-      // then grab the one clicked and set to true
       $(this).attr("data-clicked", "true");
       $(this).addClass("selected");
     } else {

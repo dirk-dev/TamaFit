@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // Getting references to our form and input
   var signUpForm = $("form.signup");
   var selectAvatar = $("img.tamagotchi");
   var firstNameInput = $("input#first-name-input");
@@ -9,10 +8,10 @@ $(document).ready(function() {
   var imgUrl = "";
 
   function handleLoginErr(err) {
-    // $("#alert .msg").text(err.responseJSON);
-    // $("#alert").fadeIn(500);
-    document.getElementById("error").innerHTML =
-      "<div class='alert alert-danger'role='alert'>Sorry. Please try again.</div>";
+    $("#alert .msg").text(err.responseJSON);
+    $("#alert").fadeIn(500);
+    // document.getElementById("error").innerHTML =
+    //   "<div class='alert alert-danger'role='alert'>Sorry. Please try again.</div>";
   }
 
   // function isIdUnique() {
@@ -20,13 +19,10 @@ $(document).ready(function() {
   // db.User.findOne({ where: { id} })
   //   .then(token => token !== null)
   //   .then(isUnique => isUnique);
-
   // }
 
-  // Does a post to the signup route. If successful, we are redirected to the members page
-  // Otherwise we log any errors
+  // redirect to member page on successful sign up
   function signUpUser(firstName, lastName, email, password, imgUrl) {
-    // console.log("signUpUser-imgUrl: " + imgUrl)
     $.post("/api/signup", {
       firstName: firstName,
       lastName: lastName,
@@ -37,16 +33,15 @@ $(document).ready(function() {
       .then(function(data) {
         document.getElementById("error").innerHTML = "";
         window.location.replace(data);
-        // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
   }
 
-  // When the signup button is clicked, we validate the email and password are not blank
+  // when signup form is submitted
   signUpForm.on("submit", function(event) {
     event.preventDefault();
+
     var imgQuerySelector = document.querySelector(".selected").src;
-    // console.log(imgQuerySelector);
     var userData = {
       firstName: firstNameInput.val().trim(),
       lastName: lastNameInput.val().trim(),
@@ -64,7 +59,7 @@ $(document).ready(function() {
     ) {
       return;
     }
-    // If we have an email and password, run the signUpUser function
+
     signUpUser(
       userData.firstName,
       userData.lastName,
@@ -72,12 +67,14 @@ $(document).ready(function() {
       userData.password,
       userData.imgUrl
     );
+
     firstNameInput.val("");
     lastNameInput.val("");
     emailInput.val("");
     passwordInput.val("");
   });
 
+  // avatar selector
   selectAvatar.on("click", function(event) {
     event.preventDefault();
     var state = $(this).attr("data-clicked");

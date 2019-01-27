@@ -1,7 +1,8 @@
 # TamaFit
 
 Current state:
-TamaFit is a full stack web application that will track a user's workout history and display an avatar of their choice. Users can view .
+
+TamaFit is a full stack web application that will track a user's workout history and display an avatar of their choice. Users can view/edit their logs, update their avatars and compare how many logs other users have in total.
 
 Original concept:
 

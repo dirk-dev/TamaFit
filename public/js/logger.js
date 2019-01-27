@@ -1,13 +1,12 @@
 $(document).ready(function() {
-  // set default date choice to today
-  var today = moment().format("YYYY-MM-DD");
-  document.getElementById("datePicker").value = today;
-
-  // Getting jQuery references to the log date, comment, form, and user select
   var loggerForm = $("#logger");
   var dateInput = $(".date");
   var commentInput = $("#comment");
   var memberId;
+
+  // set default date choice to today
+  var today = moment().format("YYYY-MM-DD");
+  document.getElementById("datePicker").value = today;
 
   function getUserId() {
     $.get("/api/user_data").then(function(data) {
@@ -16,34 +15,29 @@ $(document).ready(function() {
   }
   getUserId();
 
-  // Adding an event listener for when the form is submitted
   $(loggerForm).on("submit", handleFormSubmit);
 
-  // Gets the part of the url that comes after the "?" (which we have if we're updating a log)
+  // Gets the part of the url that comes after the "?" for updating logs
   var url = window.location.search;
   var logId;
-  // var userId;
   var updating = false;
 
-  // If we have this section in our url, we pull out the log id from the url
+  // If there's this section in the url, pull out the log id from url
   // In '?log_id=1', logId is 1
   if (url.indexOf("?log_id=") !== -1) {
     logId = url.split("=")[1];
     getLogData(logId, "log");
   }
-  // Otherwise if we have an user_id in our url, preset the user select box to be our User
-  // else if (url.indexOf("?user_id=") !== -1) {
-  //   userId = url.split("=")[1];
-  // }
 
-  // A function for handling what happens when the form to create a new log is submitted
+  // when form to create a new log is submitted
   function handleFormSubmit(event) {
     event.preventDefault();
-    // Wont submit the log if we are missing a comment or date
+
     if (!dateInput.val().trim() || !commentInput.val().trim()) {
       return;
     }
-    // Constructing a newLog object to hand to the database
+
+    // new log object to add
     var newLog = {
       date: dateInput.val().trim(),
       comment: commentInput.val().trim(),
@@ -60,14 +54,14 @@ $(document).ready(function() {
     }
   }
 
-  // Submits a new log and brings user to members page upon completion
+  // Submit new log and bring user to members page
   function submitLog(log) {
     $.post("/api/logs", log, function() {
       window.location.href = "/members";
     });
   }
 
-  // Gets log data for the current log if we're editing, or if we're adding to a user's existing logs
+  // Gets log data for the current log if editing, or if adding to a user's existing logs
   function getLogData(id, type) {
     var queryUrl;
     switch (type) {
@@ -83,12 +77,9 @@ $(document).ready(function() {
     $.get(queryUrl, function(data) {
       if (data) {
         console.log(data.UserId || data.id);
-        // If this log exists, prefill our logger forms with its data
+        // If log id already exists, pre-fill logger forms with its data and trigger an update
         dateInput.val(data.date);
         commentInput.val(data.comment);
-        // userId = data.UserId || data.id;
-        // If we have a log with this id, set a flag for us to know to update the log
-        // when we hit submit
         updating = true;
       }
     });

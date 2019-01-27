@@ -1,7 +1,7 @@
 $(document).ready(function() {
-  // figure out which user is logged in and display info
   var userId;
 
+  // figure out which user is logged in and display info
   function getUserData() {
     $.get("/api/user_data").then(function(data) {
       $(".member-name").text(data.firstName);
