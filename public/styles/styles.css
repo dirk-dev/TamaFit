@@ -111,9 +111,9 @@ h5 {
   height: 30%;
 }
 
-.member-avatar {
-  width: 50%;
-  margin: 0 auto;
+.member-img {
+  height: auto;
+  width: auto\9;
 }
 
 label {
@@ -160,6 +160,10 @@ label {
   background-color: darkred;
 }
 
+.btn-break-tag {
+  display: none;
+}
+
 .tamagotchi {
   height: 105px;
   width: auto;
@@ -178,6 +182,11 @@ label {
   padding: 3px;
 }
 
+.delete,
+.edit {
+  margin: 0 2px;
+}
+
 @media only screen and (max-width: 768px) {
   .hide-rule {
     display: none;
@@ -186,11 +195,6 @@ label {
   .avatar {
     width: 75%;
     height: auto;
-  }
-
-  .member-avatar {
-    width: 50%;
-    margin: 0 auto;
   }
 
   .member-name,
@@ -221,8 +225,7 @@ label {
   }
 }
 
-@media only screen and (max-width: 325px) {
-
+@media only screen and (max-width: 450px) {
   .btn-info,
   .delete {
     width: 18%;
@@ -239,7 +242,17 @@ label {
     font-size: 13px;
   }
 
+  .member-img {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .btn-break-tag {
+    display: block;
+  }
+
   .body-buttons {
-    margin: 2px 0;
+    margin: 2px;
   }
 }
