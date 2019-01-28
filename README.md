@@ -11,7 +11,13 @@ TamaFit is a full stack web application that will track a user's workout history
 ## Getting Started
 
 In order to get started just click here ['TamaFit'](https://tamafitpls.herokuapp.com/) to be taken to the website. Be prepared to make a new account and enjoy your new TamaFit experience. 
-<!-- These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system. -->
+
+## Demo 
+
+![TamaFit](public/images/demo.gif)
+
+### 
+
 ## Built With
 
 * [Bootstrap](https://getbootstrap.com/) - Front-end framework for developing websites and web applications.
