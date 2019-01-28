@@ -16,6 +16,10 @@ In order to get started just click here ['TamaFit'](https://tamafitpls.herokuapp
 
 ![TamaFit](public/images/demo.gif)
 
+### Technical Approach
+
+Tamafit was intended to be a very amitious app with lots of features to track a users health and display this data in a fun and interactive manner. Setting up the database and joining all of the user data together was difficult, we used sequelize to deal with this which made the process smoother. Managing the login info for each user was also a difficult process. Our team used bcrypt to encrypt the users password.
+
 ## Built With
 
 * [Bootstrap](https://getbootstrap.com/) - Front-end framework for developing websites and web applications.
