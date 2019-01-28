@@ -16,8 +16,6 @@ In order to get started just click here ['TamaFit'](https://tamafitpls.herokuapp
 
 ![TamaFit](public/images/demo.gif)
 
-### 
-
 ## Built With
 
 * [Bootstrap](https://getbootstrap.com/) - Front-end framework for developing websites and web applications.
