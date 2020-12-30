@@ -94,7 +94,7 @@ TamaFit can either be run via the deployed link, or installed on a local machine
 
 ## Authors
 
-- **Dirk Kiesewetter** - [dirk-kiesewetter](https://github.com/dirk-kiesewetter)
+- **Dirk Kiesewetter** - [dirk-dev](https://github.com/dirk-dev)
 - **Michael Perilli** - [OSCOdin](https://github.com/OSCOdin)
 - **Pauline Senh** - [plsenh](https://github.com/plsenh)
 - **Timothy Charette** - [charettetimothy](https://github.com/charettetimothy)
